@@ -1,3 +1,3 @@
-# COMP2116 Final Project
+# Shooting Plane game --- COMP2116 Final Project
 A simple shooting plane game for COMP2116 final project.
 hello
