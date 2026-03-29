@@ -2,6 +2,10 @@
 A simple calculator for COMP2116 final project.
 hello
 
+# 1. Graphical Abstract
+
+
+
 
 
 # 3. Project Purpose
@@ -17,3 +21,6 @@ Target Market:
 The target audience for this calculator includes students, beginners, and everyday users who require a lightweight tool for quick calculations. It is particularly useful for learners in programming and software engineering, as the project demonstrates how to design, implement, and document a complete software product. The simplicity of the calculator makes it accessible to non-technical users, while its potential for expansion offers opportunities for more advanced developers to experiment with additional features.
 
 
+
+
+# 4. Project Development Plan
