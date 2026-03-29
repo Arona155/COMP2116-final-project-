@@ -31,6 +31,7 @@ The target audience for this game is primarily students, beginners, and hobbyist
 
 ### Process:
 | Phases | Duration | Description |
+|----------|----------|----------|
 | Planning | 2 days | Design, role assignment |
 | Setup & Prototype | 2 days | Environment setup (venv, pygame), basic window creation |
 | Core Features | 5 days | Player movement, shooting mechanics, enemy spawning |
@@ -45,6 +46,7 @@ Documentation: Markdown (README.md)
 ### Members:
 
 | Role | Member Name | Member Student ID | Responsibilities	|
+|----------|----------|----------|----------|
 
 ### Algorithm:
 
