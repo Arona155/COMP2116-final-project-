@@ -1,17 +1,19 @@
-# Shooting Plane Game --- COMP2116 Final Project
-A simple shooting plane game for COMP2116 final project.
+# Calculator --- COMP2116 Final Project
+A simple calculator for COMP2116 final project.
 hello
 
 
 
 # 3. Project Purpose
 Software Objective:
-This project is a simple shooting plane game designed to demonstrate the fundamental principles of software engineering. The player controls a plane that can move across the screen and shoot bullets to destroy incoming enemy aircraft. Each successful hit increases the player’s score, encouraging engagement and replayability. The game provides a straightforward yet entertaining experience, making it suitable for showcasing the software development process in a manageable scope.
+This project is a calculator application designed to perform basic and extended arithmetic operations. Users can input numbers and select operations such as addition, subtraction, multiplication, and division to obtain results instantly. The calculator may also include advanced functions such as square roots, powers, and trigonometric calculations, depending on the scope of development. The primary objective is to provide a simple, reliable, and user-friendly tool that demonstrates the application of software engineering principles in a manageable project.
+
 
 Development Process Choice:
-We have chosen to adopt the Agile development methodology for this project. Agile is particularly well-suited for game development because it allows incremental improvements and iterative testing. By breaking the project into small, manageable tasks (such as implementing player movement, shooting mechanics, enemy spawning, and scoring), we can continuously refine the game and add new features over time. This flexibility ensures that the project can evolve naturally and adapt to feedback during the development cycle.
+We have chosen to follow the Agile development methodology for this project. Agile allows us to build the calculator incrementally, starting with core arithmetic features and then iteratively adding more advanced functions. This approach ensures flexibility, continuous testing, and the ability to adapt to feedback. For example, the first iteration may focus on basic operations, while later iterations can introduce scientific functions or a graphical user interface (GUI).
 
 
 Target Market:
-The target audience for this game is primarily students, beginners, and hobbyists who are interested in learning programming and software development through interactive projects. The game serves as both an educational tool and a source of entertainment. Its simplicity makes it accessible to those with limited technical background, while still offering opportunities for extension (e.g., adding levels, bosses, or sound effects) for more advanced learners.
+The target audience for this calculator includes students, beginners, and everyday users who require a lightweight tool for quick calculations. It is particularly useful for learners in programming and software engineering, as the project demonstrates how to design, implement, and document a complete software product. The simplicity of the calculator makes it accessible to non-technical users, while its potential for expansion offers opportunities for more advanced developers to experiment with additional features.
+
 
