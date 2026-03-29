@@ -1,4 +1,4 @@
-# Calculator --- COMP2116 Final Project
+# Calculator Application --- COMP2116 Final Project
 A simple calculator for COMP2116 final project.
 hello
 
