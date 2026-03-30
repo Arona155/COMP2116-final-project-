@@ -1,6 +1,5 @@
 # Shooting Plane Game --- COMP2116 Final Project
 A simple shooting plane game for COMP2116 final project.
-hello
 
 # 1. Graphical Abstract
 
@@ -30,18 +29,18 @@ The target audience for this game is primarily students, beginners, and hobbyist
 #### Methodology:Agile 
 
 ### Process:
-| Phases | Duration | Description |
+| Phases | Duration(days) | Description |
 |----------|----------|----------|
-| Planning | 2 days | Design, role assignment |
-| Setup & Prototype | 2 days | Environment setup (venv, pygame), basic window creation |
-| Core Features | 5 days | Player movement, shooting mechanics, enemy spawning |
-| Polish & Testing | 4 days | Collision detection, scoring, bug fixes |
-| Documentation	| 2 days | Finalize README, user manual, make sample video |
+| Planning | 4 | Design, Research, role assignment |
+| Setup & Prototype | 1 | Environment setup (venv, pygame), basic window creation |
+| Core Features | 6 | Player movement, shooting mechanics, enemy spawning |
+| Polish & Testing | 4 | Collision detection, scoring, bug fixes |
+| Documentation	| 3 | Finalize README, user manual, make sample video |
 
 ### Tools Used:
-Language: Python 3.11
-Library: Pygame
-Documentation: Markdown (README.md)
+- Language: Python 3.11
+- Library: Pygame
+- Documentation: Markdown (README.md)
 
 ### Members:
 
