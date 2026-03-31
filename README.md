@@ -7,7 +7,7 @@ A simple shooting plane game for COMP2116 final project.
 
 
 
-# 3. Project Purpose
+# 2. Project Purpose
 ## Software Objective:
 This project is a simple shooting plane game designed to demonstrate the fundamental principles of software engineering. The player controls a plane that can move across the screen and shoot bullets to destroy incoming enemy aircraft. Each successful hit increases the player’s score, encouraging engagement and replayability. The game provides a straightforward yet entertaining experience, making it suitable for showcasing the software development process in a manageable scope.
 
@@ -22,7 +22,7 @@ The target audience for this game is primarily students, beginners, and hobbyist
 
 
 
-# 4. Project Development Plan
+# 3. Project Development Plan
 
 #### Methodology: Agile 
 
