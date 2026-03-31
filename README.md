@@ -24,8 +24,6 @@ The target audience for this game is primarily students, beginners, and hobbyist
 
 # 4. Project Development Plan
 
-## Development Process:
-
 #### Methodology: Agile 
 
 ### Development Process:
