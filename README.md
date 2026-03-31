@@ -27,13 +27,29 @@ The target audience for this game is primarily students, beginners, and hobbyist
 #### Methodology: Agile 
 
 ### Development Process:
-| Phases | Duration(days) | Description |
-|----------|----------|----------|
-| Planning | 4 | Design, Research, role assignment |
-| Setup & Prototype | 1 | Environment setup (venv, pygame), basic window creation |
-| Core Features | 6 | Player movement, shooting mechanics, enemy spawning |
-| Polish & Testing | 4 | Collision detection, scoring, bug fixes |
-| Documentation	| 3 | Finalize README, user manual, make sample video |
+1. Initial Setup
+The project began with setting up the basic game environment using Python. A simple window and game loop were created to handle rendering and user input.
+
+2. Player Implementation
+The player-controlled airplane was implemented first. Basic movement controls (left and right using keyboard input) were added to allow user interaction.
+
+3. Enemy System
+Enemy airplanes were introduced with basic spawning and movement behavior. This added challenge and interaction to the game.
+
+4. Shooting Mechanism
+A bullet system was developed, allowing the player to shoot projectiles. Collision detection between bullets and enemy planes was implemented.
+
+5. Scoring System
+A scoring system was added to reward players for destroying enemy planes. Each enemy contributes to the total score.
+
+6. Collision Detection & Game Over
+Collision detection between the player and enemy planes was implemented. The game ends immediately when a collision occurs, increasing difficulty and player awareness.
+
+7. Restart Functionality
+A restart feature was added, allowing players to quickly restart the game by pressing a key (R), improving user experience.
+
+8. Packaging & Distribution
+Finally, the game was packaged into an executable file for easy distribution. GitHub was used to manage source code, while GitHub Releases was used to distribute the playable version.
 
 ### Tools Used:
 - Language: Python 3.11
