@@ -62,7 +62,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 |----------|----------|----------|----------|
 
 
-## Schedule
+### Schedule
 
 - Week 1: Project setup  
 - Week 2: Player movement  
@@ -77,7 +77,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 ### Algorithm:
 
 
-## Current Status:
+### Current Status:
 
 The Shooting Plane Game is currently in a demo version (v0.1).
 
@@ -101,10 +101,10 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 ### Future Plan:
 
 
-### Demo (YoutubeURL): 
+## Demo (YoutubeURL): 
 
 
-### Environments of the software development and running:
+## Environments of the software development and running:
 
 
 ### Declaration:
