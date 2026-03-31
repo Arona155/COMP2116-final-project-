@@ -8,31 +8,31 @@ A simple shooting plane game for COMP2116 final project.
 
 
 # 2. Project Purpose
-###Development Methodology:
+### Development Methodology:
 This project follows an Agile development process.
 
-###Why Agile?
+### Why Agile?
 Agile was chosen over the Waterfall model because it allows for incremental development and continuous improvement.
 
 During the development of the Shooting Plane Game, features were implemented step by step (e.g., player movement, enemies, shooting system), and each component was tested immediately after completion. This made it easier to:
 
--Identify and fix bugs early
--Adjust game mechanics quickly
--Improve gameplay based on testing
+- Identify and fix bugs early
+- Adjust game mechanics quickly
+- Improve gameplay based on testing
 
 Compared to Waterfall, which requires all requirements to be defined upfront, Agile provides more flexibility, which is suitable for game development where ideas often evolve during the process.
 
-###Target Market / Usage:
+### Target Market / Usage:
 
 The Shooting Plane Game is designed for:
--Casual players who enjoy simple arcade-style games
--Students and beginners learning game development concepts
--Anyone looking for a lightweight and easy-to-play shooting game
+- Casual players who enjoy simple arcade-style games
+- Students and beginners learning game development concepts
+- Anyone looking for a lightweight and easy-to-play shooting game
 
 The game can be used for:
--Entertainment and casual gaming
--Educational purposes (learning basic game mechanics and programming)
--Demonstration of fundamental game development techniques
+- Entertainment and casual gaming
+- Educational purposes (learning basic game mechanics and programming)
+- Demonstration of fundamental game development techniques
 
 
 
