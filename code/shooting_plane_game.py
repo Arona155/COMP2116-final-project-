@@ -142,6 +142,100 @@ class Enemy:
         pygame.draw.circle(screen, BLACK, (self.rect.centerx, self.rect.top + 12), 4)
 
 
+class Button:
+    def __init__(self, x, y, width, height, text, color, hover_color, text_color):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.text = text
+        self.color = color
+        self.hover_color = hover_color
+        self.text_color = text_color
+        self.is_hovered = False
+        
+    def draw(self, screen):
+        # Draw button background
+        color = self.hover_color if self.is_hovered else self.color
+        pygame.draw.rect(screen, color, self.rect)
+        pygame.draw.rect(screen, self.text_color, self.rect, 2)  # Border
+        
+        # Draw button text
+        draw_text(screen, self.text, 36, self.text_color, self.rect.centerx, self.rect.centery, center=True)
+        
+    def handle_event(self, event):
+        if event.type == pygame.MOUSEMOTION:    #mouse overlap button 
+            self.is_hovered = self.rect.collidepoint(event.pos)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if self.is_hovered and event.button == 1: #hovered and clicked
+                return True
+        return False
+        
+
+class MainMenu:
+    def __init__(self, screen):
+        self.screen = screen
+        self.clock = pygame.time.Clock()
+        self.running = True
+    
+        # Create buttons
+        button_width = 250
+        button_height = 60
+        button_x = WIDTH // 2 - button_width // 2
+        
+        self.start_button = Button(
+            button_x, HEIGHT // 2 - 40,
+            button_width, button_height,
+            "Start Game", GREEN, BLACK, WHITE
+        )
+        
+        self.quit_button = Button(
+            button_x, HEIGHT // 2 + 40,
+            button_width, button_height,
+            "Quit", (255, 100, 100), BLACK, WHITE
+        )
+        
+        # Background gradient colors
+        self.bg_color1 = (20, 20, 40) #grey
+        self.bg_color2 = (40, 40, 60) #light grey
+        
+    def draw_background(self):
+        # Create gradient background
+        for i in range(HEIGHT):
+            color = (
+                self.bg_color1[0] + (self.bg_color2[0] - self.bg_color1[0]) * i // HEIGHT,
+                self.bg_color1[1] + (self.bg_color2[1] - self.bg_color1[1]) * i // HEIGHT,
+                self.bg_color1[2] + (self.bg_color2[2] - self.bg_color1[2]) * i // HEIGHT
+            )
+            pygame.draw.line(self.screen, color, (0, i), (WIDTH, i))
+    
+    def draw_title(self):
+        # Draw title
+        draw_text(self.screen, TITLE, 68, WHITE, WIDTH//2, HEIGHT//4, center=True)
+        
+    
+    def run(self):
+        while self.running:
+            # Handle events
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return "quit"
+                
+                # Check button clicks
+                if self.start_button.handle_event(event):
+                    return "start"
+                if self.quit_button.handle_event(event):
+                    return "quit"
+            
+            # Draw everything
+            self.draw_background()
+            self.draw_title()
+            self.start_button.draw(self.screen)
+            self.quit_button.draw(self.screen)
+            
+            # Update display
+            pygame.display.flip()
+            self.clock.tick(60)
+        
+        return "quit"
+    
 def draw_background(screen, stars):
     screen.fill(BLACK)
     for star in stars:
@@ -187,11 +281,10 @@ def reset_game():
         "bullets": [],
         "enemies": [],
         "score": 0,
-        "game_over": False,
+        "current_state": "menu",
         "spawn_timer": 0,
         "stars": create_stars(),
     }
-
 
 def main():
     pygame.init()
@@ -199,6 +292,7 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
 
+    menu = MainMenu(screen)
     state = reset_game()
     running = True
 
@@ -210,13 +304,23 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     running = False
-                if event.key == pygame.K_r and state["game_over"]:
+                if event.key == pygame.K_r and state["current_state"]== "game_over":
                     state = reset_game()
-                if event.key == pygame.K_SPACE and not state["game_over"]:
+                if event.key == pygame.K_SPACE and state["current_state"] == "game":
                     if state["player"].can_shoot():
                         state["bullets"].append(state["player"].shoot())
 
-        if not state["game_over"]:
+        # Menu
+        if state["current_state"] == "menu":
+            result = menu.run()
+            if result == "start":
+                state["current_state"] = "game"
+            elif result == "quit":
+                running = False
+                break
+
+        # Game
+        if state["current_state"] == "game":
             keys = pygame.key.get_pressed()
             state["player"].move(keys)
             update_stars(state["stars"])
@@ -256,7 +360,7 @@ def main():
             # Player-enemy collision => game over
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
-                    state["game_over"] = True
+                    state["current_state"] = "game_over"
                     break
 
         # Draw
@@ -276,7 +380,7 @@ def main():
         draw_text(screen, f"Score: {state['score']}", 24, WHITE, 12, 12, center=False)
         draw_text(screen, "A / D Move   SPACE Shoot", 18, WHITE, WIDTH // 2, HEIGHT - 28)
 
-        if state["game_over"]:
+        if state["current_state"] == "game_over":
             overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
             overlay.fill((0, 0, 0, 160))
             screen.blit(overlay, (0, 0))
