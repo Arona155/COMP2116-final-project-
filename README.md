@@ -79,19 +79,19 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 The Shooting Plane Game is currently in a demo version (v0.1).
 
 ✅ Completed Features
-Player-controlled airplane with left/right movement
-Enemy airplane system
-Shooting (bullet) functionality
-Score tracking system
-Collision detection (game over on impact)
-Restart functionality (press R to restart)
+- Player-controlled airplane with left/right movement
+- Enemy airplane system
+- Shooting (bullet) functionality
+- Score tracking system
+- Collision detection (game over on impact)
+- Restart functionality (press R to restart)
 
 🚧 In Progress / Future Improvements
-Enhanced enemy behaviors and difficulty scaling
-Improved graphics and visual effects
-Sound effects and background music
-User interface enhancements (menus, HUD)
-Performance optimization and bug fixes
+- Enhanced enemy behaviors and difficulty scaling
+- Improved graphics and visual effects
+- Sound effects and background music
+- User interface enhancements (menus, HUD)
+- Performance optimization and bug fixes
 
 ### Algorithm:
 
