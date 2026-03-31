@@ -107,4 +107,4 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 ## Environments of the software development and running:
 
 
-### Declaration:
+## Declaration:
