@@ -45,8 +45,13 @@ class Player:
             self.rect.x -= PLAYER_SPEED
         if keys[pygame.K_d]:
             self.rect.x += PLAYER_SPEED
+        if keys[pygame.K_w]:
+            self.rect.y -= PLAYER_SPEED
+        if keys[pygame.K_s]:
+            self.rect.y += PLAYER_SPEED
 
         self.rect.x = max(0, min(WIDTH - self.rect.width, self.rect.x))
+        self.rect.y = max(0, min(HEIGHT - self.rect.height, self.rect.y))
 
         if self.cooldown > 0:
             self.cooldown -= 1
@@ -378,7 +383,7 @@ def main():
         # UI
         draw_text(screen, TITLE, 28, WHITE, WIDTH // 2, 28)
         draw_text(screen, f"Score: {state['score']}", 24, WHITE, 12, 12, center=False)
-        draw_text(screen, "A / D Move   SPACE Shoot", 18, WHITE, WIDTH // 2, HEIGHT - 28)
+        draw_text(screen, "W A S D Move   SPACE Shoot", 18, WHITE, WIDTH // 2, HEIGHT - 28)
 
         if state["current_state"] == "game_over":
             overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
