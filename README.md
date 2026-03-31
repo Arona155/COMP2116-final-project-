@@ -45,5 +45,18 @@ The target audience for this game is primarily students, beginners, and hobbyist
 | Role | Member Name | Member Student ID | Responsibilities	|
 |----------|----------|----------|----------|
 
+
+## Schedule
+
+- Week 1: Project setup  
+- Week 2: Player movement  
+- Week 3: Enemy system  
+- Week 4: Shooting system  
+- Week 5: Collision and scoring  
+- Week 6: Game over and restart  
+- Week 7: Testing and debugging  
+- Week 8: Packaging and release demo verison
+- Week 9: 
+
 ### Algorithm:
 
