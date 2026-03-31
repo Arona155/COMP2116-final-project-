@@ -26,9 +26,9 @@ The target audience for this game is primarily students, beginners, and hobbyist
 
 ## Development Process:
 
-#### Methodology:Agile 
+#### Methodology: Agile 
 
-### Process:
+### Development Process:
 | Phases | Duration(days) | Description |
 |----------|----------|----------|
 | Planning | 4 | Design, Research, role assignment |
