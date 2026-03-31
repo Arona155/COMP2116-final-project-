@@ -8,23 +8,35 @@ A simple shooting plane game for COMP2116 final project.
 
 
 # 2. Project Purpose
-## Software Objective:
-This project is a simple shooting plane game designed to demonstrate the fundamental principles of software engineering. The player controls a plane that can move across the screen and shoot bullets to destroy incoming enemy aircraft. Each successful hit increases the player’s score, encouraging engagement and replayability. The game provides a straightforward yet entertaining experience, making it suitable for showcasing the software development process in a manageable scope.
+###Development Methodology:
+This project follows an Agile development process.
 
+###Why Agile?
+Agile was chosen over the Waterfall model because it allows for incremental development and continuous improvement.
 
-## Development Process Choice:
-We have chosen to adopt the Agile development methodology for this project. Agile is particularly well-suited for game development because it allows incremental improvements and iterative testing. By breaking the project into small, manageable tasks (such as implementing player movement, shooting mechanics, enemy spawning, and scoring), we can continuously refine the game and add new features over time. This flexibility ensures that the project can evolve naturally and adapt to feedback during the development cycle.
+During the development of the Shooting Plane Game, features were implemented step by step (e.g., player movement, enemies, shooting system), and each component was tested immediately after completion. This made it easier to:
 
+-Identify and fix bugs early
+-Adjust game mechanics quickly
+-Improve gameplay based on testing
 
-## Target Market:
-The target audience for this game is primarily students, beginners, and hobbyists who are interested in learning programming and software development through interactive projects. The game serves as both an educational tool and a source of entertainment. Its simplicity makes it accessible to those with limited technical background, while still offering opportunities for extension (e.g., adding levels, bosses, or sound effects) for more advanced learners.
+Compared to Waterfall, which requires all requirements to be defined upfront, Agile provides more flexibility, which is suitable for game development where ideas often evolve during the process.
 
+###Target Market / Usage:
+
+The Shooting Plane Game is designed for:
+-Casual players who enjoy simple arcade-style games
+-Students and beginners learning game development concepts
+-Anyone looking for a lightweight and easy-to-play shooting game
+
+The game can be used for:
+-Entertainment and casual gaming
+-Educational purposes (learning basic game mechanics and programming)
+-Demonstration of fundamental game development techniques
 
 
 
 # 3. Project Development Plan
-
-#### Methodology: Agile 
 
 ### Development Process:
 1. Initial Setup:
