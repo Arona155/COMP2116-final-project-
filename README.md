@@ -58,5 +58,24 @@ The target audience for this game is primarily students, beginners, and hobbyist
 - Week 8: Packaging and release demo verison
 - Week 9: 
 
+## Current Status
+
+The Shooting Plane Game is currently in a demo version (v0.1).
+
+✅ Completed Features
+Player-controlled airplane with left/right movement
+Enemy airplane system
+Shooting (bullet) functionality
+Score tracking system
+Collision detection (game over on impact)
+Restart functionality (press R to restart)
+
+🚧 In Progress / Future Improvements
+Enhanced enemy behaviors and difficulty scaling
+Improved graphics and visual effects
+Sound effects and background music
+User interface enhancements (menus, HUD)
+Performance optimization and bug fixes
+
 ### Algorithm:
 
