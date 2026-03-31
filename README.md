@@ -74,7 +74,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 |----------|----------|----------|----------|
 
 
-### Schedule
+### Schedule:
 
 - Week 1: Project setup  
 - Week 2: Player movement  
@@ -93,7 +93,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 
 The Shooting Plane Game is currently in a demo version (v0.1).
 
-✅ Completed Features
+✅ Completed Features:
 - Player-controlled airplane with left/right movement
 - Enemy airplane system
 - Shooting (bullet) functionality
@@ -101,7 +101,7 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 - Collision detection (game over on impact)
 - Restart functionality (press R to restart)
 
-🚧 In Progress / Future Improvements
+🚧 In Progress / Future Improvements:
 - Enhanced enemy behaviors and difficulty scaling
 - Improved graphics and visual effects
 - Sound effects and background music
