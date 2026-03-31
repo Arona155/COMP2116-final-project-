@@ -33,6 +33,40 @@ BLUE = (80, 160, 255)
 GREEN = (90, 220, 120)
 
 
+
+_sound_manager = None
+
+def get_sound_manager():
+    global _sound_manager
+    if _sound_manager is None:
+        _sound_manager = SoundManager()
+    return _sound_manager
+    
+class SoundManager:
+    def __init__(self):
+        self.sounds = {}  # store sounds
+        self.music_playing = False
+        self.load_all_sounds()
+
+    def load_all_sounds(self):
+        try:
+            # Load sound effects
+            self.sounds['shoot'] = pygame.mixer.Sound("assets/laser.wav")       #laser fire sound from opengameart.org by dklon  https://opengameart.org/content/laser-fire  
+            self.sounds['shoot'].set_volume(0.03)
+
+            print("Sounds loaded successfully!")
+            return True
+            
+        except pygame.error as e:
+            print("Game will run without sound")
+            return False
+    
+    def play(self, sound_name):
+        if sound_name in self.sounds and self.sounds[sound_name]:
+            self.sounds[sound_name].play()
+            return True
+        return False
+    
 class Player:
     def __init__(self):
         self.width = 44
@@ -83,6 +117,7 @@ class Player:
         return self.cooldown == 0
 
     def shoot(self):
+        get_sound_manager().play('shoot')
         self.cooldown = 12
         return Bullet(self.rect.centerx - 3, self.rect.top - 10)
 
@@ -296,6 +331,7 @@ def main():
     pygame.display.set_caption(TITLE)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
+    sound = get_sound_manager()
 
     menu = MainMenu(screen)
     state = reset_game()
