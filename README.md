@@ -1,5 +1,7 @@
 # Shooting Plane Game --- COMP2116 Final Project
-A simple shooting plane game for COMP2116 final project.
+Shooting Plane Game is a simple 2D arcade-style shooting game developed in Python.
+Players control a fighter plane, shoot down enemies, and try to achieve the highest score while avoiding collisions.
+
 
 # 1. Graphical Abstract
 
