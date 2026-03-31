@@ -74,7 +74,10 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 - Week 8: Packaging and release demo verison
 - Week 9: 
 
-## Current Status
+### Algorithm:
+
+
+## Current Status:
 
 The Shooting Plane Game is currently in a demo version (v0.1).
 
@@ -93,5 +96,15 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 - User interface enhancements (menus, HUD)
 - Performance optimization and bug fixes
 
-### Algorithm:
 
+
+### Future Plan:
+
+
+### Demo (YoutubeURL): 
+
+
+### Environments of the software development and running:
+
+
+### Declaration:
