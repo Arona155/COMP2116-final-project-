@@ -12,32 +12,6 @@ def resource_path(relative_path):
         base_path = Path(__file__).parent
     return Path(base_path) / relative_path
 
-class SoundManager:
-    def __init__(self):
-        self.sounds = {}
-        self.music_playing = False
-        self.load_all_sounds()
-
-    def load_all_sounds(self):
-        try:
-            sound_path = resource_path("assets/laser.wav")
-
-            self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
-            self.sounds["shoot"].set_volume(0.03)
-
-            print("Sounds loaded successfully!")
-            return True
-        except (pygame.error, FileNotFoundError) as e:
-            print(f"Sound load failed: {e}")
-            print("Game will run without sound")
-            return False
-
-    def play(self, sound_name):
-        if sound_name in self.sounds and self.sounds[sound_name]:
-            self.sounds[sound_name].play()
-            return True
-        return False
-
 
 # =========================
 # Shooting Plane Game
@@ -70,6 +44,32 @@ DARK_OVERLAY = (0, 0, 0, 160)
 
 _sound_manager = None
 
+
+class SoundManager:
+    def __init__(self):
+        self.sounds = {}
+        self.music_playing = False
+        self.load_all_sounds()
+
+    def load_all_sounds(self):
+        try:
+            sound_path = resource_path("assets/laser.wav")
+
+            self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
+            self.sounds["shoot"].set_volume(0.03)
+
+            print("Sounds loaded successfully!")
+            return True
+        except (pygame.error, FileNotFoundError) as e:
+            print(f"Sound load failed: {e}")
+            print("Game will run without sound")
+            return False
+
+    def play(self, sound_name):
+        if sound_name in self.sounds and self.sounds[sound_name]:
+            self.sounds[sound_name].play()
+            return True
+        return False
 
 def get_sound_manager():
     global _sound_manager
@@ -250,6 +250,7 @@ class MainMenu:
 
     def run(self):
         while self.running:
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return "quit"
@@ -302,26 +303,21 @@ class OverlayMenu:
         overlay.fill(DARK_OVERLAY)
         self.screen.blit(overlay, (0, 0))
 
-        draw_text(self.screen, self.title, 56, WHITE, WIDTH // 2, HEIGHT // 2 - 120)
+        draw_text(self.screen, self.title, 56, WHITE, WIDTH // 2, HEIGHT // 2 - 140)
         if self.subtitle:
-            draw_text(self.screen, self.subtitle, 24, YELLOW, WIDTH // 2, HEIGHT // 2 - 72)
+            draw_text(self.screen, self.subtitle, 24, YELLOW, WIDTH // 2, HEIGHT // 2 - 97)
 
         self.restart_button.draw(self.screen)
         self.home_button.draw(self.screen)
         self.quit_button.draw(self.screen)
 
     def handle_event(self, event):
-        if event.type == pygame.MOUSEMOTION:
-            self.restart_button.handle_event(event)
-            self.home_button.handle_event(event)
-            self.quit_button.handle_event(event)
-        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            if self.restart_button.handle_event(event):
-                return "restart"
-            if self.home_button.handle_event(event):
-                return "home"
-            if self.quit_button.handle_event(event):
-                return "quit"
+        if self.restart_button.handle_event(event):
+            return "restart"
+        if self.home_button.handle_event(event):
+            return "home"
+        if self.quit_button.handle_event(event):
+            return "quit"
         return None
 
 
@@ -386,12 +382,23 @@ def main():
     pygame.display.set_caption(TITLE)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
-    sound = get_sound_manager()
-    _ = sound  # keep for future use
+    # _ = sound  # keep for future use
 
     menu = MainMenu(screen)
     state = reset_game()
+    pause_menu = OverlayMenu(
+        screen,
+        "PAUSED",
+        "Press ESC to resume"
+    )
+
+    game_over_menu = OverlayMenu(
+        screen,
+        "GAME OVER",
+        "Final Score: 0 " # placeholder
+    )
     running = True
+    
 
     while running:
         dt = clock.tick(FPS)
@@ -406,22 +413,11 @@ def main():
                 running = False
                 break
 
-        pause_menu = OverlayMenu(
-            screen,
-            "PAUSED",
-            "Press ESC to resume"
-        )
-        game_over_menu = OverlayMenu(
-            screen,
-            "GAME OVER",
-            f"Final Score: {state['score']}"
-        )
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
                 break
-
+            
             if state["current_state"] == "game":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -496,6 +492,11 @@ def main():
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
                     state["current_state"] = "game_over"
+                    game_over_menu = OverlayMenu(
+                        screen,
+                        "GAME OVER",
+                        f"Final Score: {state['score']}"
+                    )
                     break
 
         draw_background(screen, state["stars"])
