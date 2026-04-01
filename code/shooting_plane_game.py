@@ -5,12 +5,47 @@ from pathlib import Path
 
 import pygame
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS  # PyInstaller 暫存資料夾
+    except Exception:
+        base_path = Path(__file__).parent
+        return Path(base_path) / relative_path
+
+class SoundManager:
+    def __init__(self):
+        self.sounds = {}
+        self.music_playing = False
+        self.load_all_sounds()
+
+    def load_all_sounds(self):
+        try:
+            sound_path = resource_path("assets/laser.wav")
+
+            self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
+            self.sounds["shoot"].set_volume(0.03)
+
+            print("Sounds loaded successfully!")
+            return True
+        except (pygame.error, FileNotFoundError) as e:
+            print(f"Sound load failed: {e}")
+            print("Game will run without sound")
+            return False
+
+    def play(self, sound_name):
+        if sound_name in self.sounds and self.sounds[sound_name]:
+            self.sounds[sound_name].play()
+            return True
+        return False
+
 
 # =========================
 # Shooting Plane Game
 # Controls:
 #   A / D   -> move left / right
+#   W / S   -> move up / down
 #   SPACE   -> shoot
+#   ESC     -> pause menu
 #   R       -> restart after game over
 # =========================
 
@@ -31,42 +66,18 @@ RED = (220, 60, 60)
 YELLOW = (245, 210, 70)
 BLUE = (80, 160, 255)
 GREEN = (90, 220, 120)
-
-
+DARK_OVERLAY = (0, 0, 0, 160)
 
 _sound_manager = None
+
 
 def get_sound_manager():
     global _sound_manager
     if _sound_manager is None:
         _sound_manager = SoundManager()
     return _sound_manager
-    
-class SoundManager:
-    def __init__(self):
-        self.sounds = {}  # store sounds
-        self.music_playing = False
-        self.load_all_sounds()
 
-    def load_all_sounds(self):
-        try:
-            # Load sound effects
-            self.sounds['shoot'] = pygame.mixer.Sound("assets/laser.wav")       #laser fire sound from opengameart.org by dklon  https://opengameart.org/content/laser-fire  
-            self.sounds['shoot'].set_volume(0.03)
 
-            print("Sounds loaded successfully!")
-            return True
-            
-        except pygame.error as e:
-            print("Game will run without sound")
-            return False
-    
-    def play(self, sound_name):
-        if sound_name in self.sounds and self.sounds[sound_name]:
-            self.sounds[sound_name].play()
-            return True
-        return False
-    
 class Player:
     def __init__(self):
         self.width = 44
@@ -91,7 +102,6 @@ class Player:
             self.cooldown -= 1
 
     def draw(self, screen):
-        # Body
         body_points = [
             (self.rect.centerx, self.rect.top),
             (self.rect.left + 10, self.rect.bottom - 8),
@@ -99,9 +109,7 @@ class Player:
             (self.rect.right - 10, self.rect.bottom - 8),
         ]
         pygame.draw.polygon(screen, BLUE, body_points)
-        # Cockpit
         pygame.draw.circle(screen, WHITE, (self.rect.centerx, self.rect.top + 18), 6)
-        # Wings
         pygame.draw.polygon(
             screen,
             GREEN,
@@ -117,7 +125,7 @@ class Player:
         return self.cooldown == 0
 
     def shoot(self):
-        get_sound_manager().play('shoot')
+        get_sound_manager().play("shoot")
         self.cooldown = 12
         return Bullet(self.rect.centerx - 3, self.rect.top - 10)
 
@@ -159,7 +167,6 @@ class Enemy:
             self.x_drift *= -1
 
     def draw(self, screen):
-        # Enemy plane body
         body = [
             (self.rect.centerx, self.rect.bottom),
             (self.rect.left + 8, self.rect.top + 12),
@@ -167,7 +174,6 @@ class Enemy:
             (self.rect.right - 8, self.rect.top + 12),
         ]
         pygame.draw.polygon(screen, RED, body)
-        # Wings
         pygame.draw.polygon(
             screen,
             WHITE,
@@ -178,7 +184,6 @@ class Enemy:
                 (self.rect.centerx + 8, self.rect.centery - 2),
             ],
         )
-        # Window
         pygame.draw.circle(screen, BLACK, (self.rect.centerx, self.rect.top + 12), 4)
 
 
@@ -190,92 +195,136 @@ class Button:
         self.hover_color = hover_color
         self.text_color = text_color
         self.is_hovered = False
-        
+
     def draw(self, screen):
-        # Draw button background
         color = self.hover_color if self.is_hovered else self.color
-        pygame.draw.rect(screen, color, self.rect)
-        pygame.draw.rect(screen, self.text_color, self.rect, 2)  # Border
-        
-        # Draw button text
-        draw_text(screen, self.text, 36, self.text_color, self.rect.centerx, self.rect.centery, center=True)
-        
+        pygame.draw.rect(screen, color, self.rect, border_radius=10)
+        pygame.draw.rect(screen, self.text_color, self.rect, 2, border_radius=10)
+        draw_text(screen, self.text, 32, self.text_color, self.rect.centerx, self.rect.centery, center=True)
+
     def handle_event(self, event):
-        if event.type == pygame.MOUSEMOTION:    #mouse overlap button 
+        if event.type == pygame.MOUSEMOTION:
             self.is_hovered = self.rect.collidepoint(event.pos)
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            if self.is_hovered and event.button == 1: #hovered and clicked
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if self.rect.collidepoint(event.pos):
                 return True
         return False
-        
+
 
 class MainMenu:
     def __init__(self, screen):
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.running = True
-    
-        # Create buttons
+
         button_width = 250
         button_height = 60
         button_x = WIDTH // 2 - button_width // 2
-        
+
         self.start_button = Button(
             button_x, HEIGHT // 2 - 40,
             button_width, button_height,
             "Start Game", GREEN, BLACK, WHITE
         )
-        
+
         self.quit_button = Button(
             button_x, HEIGHT // 2 + 40,
             button_width, button_height,
             "Quit", (255, 100, 100), BLACK, WHITE
         )
-        
-        # Background gradient colors
-        self.bg_color1 = (20, 20, 40) #grey
-        self.bg_color2 = (40, 40, 60) #light grey
-        
+
+        self.bg_color1 = (20, 20, 40)
+        self.bg_color2 = (40, 40, 60)
+
     def draw_background(self):
-        # Create gradient background
         for i in range(HEIGHT):
             color = (
                 self.bg_color1[0] + (self.bg_color2[0] - self.bg_color1[0]) * i // HEIGHT,
                 self.bg_color1[1] + (self.bg_color2[1] - self.bg_color1[1]) * i // HEIGHT,
-                self.bg_color1[2] + (self.bg_color2[2] - self.bg_color1[2]) * i // HEIGHT
+                self.bg_color1[2] + (self.bg_color2[2] - self.bg_color1[2]) * i // HEIGHT,
             )
             pygame.draw.line(self.screen, color, (0, i), (WIDTH, i))
-    
+
     def draw_title(self):
-        # Draw title
-        draw_text(self.screen, TITLE, 68, WHITE, WIDTH//2, HEIGHT//4, center=True)
-        
-    
+        draw_text(self.screen, TITLE, 68, WHITE, WIDTH // 2, HEIGHT // 4, center=True)
+
     def run(self):
         while self.running:
-            # Handle events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return "quit"
-                
-                # Check button clicks
                 if self.start_button.handle_event(event):
                     return "start"
                 if self.quit_button.handle_event(event):
                     return "quit"
-            
-            # Draw everything
+
             self.draw_background()
             self.draw_title()
             self.start_button.draw(self.screen)
             self.quit_button.draw(self.screen)
-            
-            # Update display
+
             pygame.display.flip()
             self.clock.tick(60)
-        
+
         return "quit"
-    
+
+
+class OverlayMenu:
+    def __init__(self, screen, title, subtitle=None):
+        self.screen = screen
+        self.title = title
+        self.subtitle = subtitle
+
+        button_width = 250
+        button_height = 60
+        button_x = WIDTH // 2 - button_width // 2
+        button_gap = 18
+        start_y = HEIGHT // 2 - button_height - button_gap
+
+        self.restart_button = Button(
+            button_x, start_y,
+            button_width, button_height,
+            "Restart", GREEN, BLACK, WHITE
+        )
+        self.home_button = Button(
+            button_x, start_y + button_height + button_gap,
+            button_width, button_height,
+            "Home", BLUE, BLACK, WHITE
+        )
+        self.quit_button = Button(
+            button_x, start_y + (button_height + button_gap) * 2,
+            button_width, button_height,
+            "Quit", (255, 100, 100), BLACK, WHITE
+        )
+
+    def draw(self):
+        overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+        overlay.fill(DARK_OVERLAY)
+        self.screen.blit(overlay, (0, 0))
+
+        draw_text(self.screen, self.title, 56, WHITE, WIDTH // 2, HEIGHT // 2 - 120)
+        if self.subtitle:
+            draw_text(self.screen, self.subtitle, 24, YELLOW, WIDTH // 2, HEIGHT // 2 - 72)
+
+        self.restart_button.draw(self.screen)
+        self.home_button.draw(self.screen)
+        self.quit_button.draw(self.screen)
+
+    def handle_event(self, event):
+        if event.type == pygame.MOUSEMOTION:
+            self.restart_button.handle_event(event)
+            self.home_button.handle_event(event)
+            self.quit_button.handle_event(event)
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if self.restart_button.handle_event(event):
+                return "restart"
+            if self.home_button.handle_event(event):
+                return "home"
+            if self.quit_button.handle_event(event):
+                return "quit"
+        return None
+
+
 def draw_background(screen, stars):
     screen.fill(BLACK)
     for star in stars:
@@ -326,12 +375,19 @@ def reset_game():
         "stars": create_stars(),
     }
 
+
 def main():
     pygame.init()
+    try:
+        pygame.mixer.init()
+    except pygame.error:
+        pass
+
     pygame.display.set_caption(TITLE)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
     sound = get_sound_manager()
+    _ = sound  # keep for future use
 
     menu = MainMenu(screen)
     state = reset_game()
@@ -339,52 +395,91 @@ def main():
 
     while running:
         dt = clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    running = False
-                if event.key == pygame.K_r and state["current_state"]== "game_over":
-                    state = reset_game()
-                if event.key == pygame.K_SPACE and state["current_state"] == "game":
-                    if state["player"].can_shoot():
-                        state["bullets"].append(state["player"].shoot())
 
-        # Menu
         if state["current_state"] == "menu":
             result = menu.run()
             if result == "start":
+                state = reset_game()
                 state["current_state"] = "game"
-            elif result == "quit":
+                continue
+            if result == "quit":
                 running = False
                 break
 
-        # Game
+        pause_menu = OverlayMenu(
+            screen,
+            "PAUSED",
+            "Press ESC to resume"
+        )
+        game_over_menu = OverlayMenu(
+            screen,
+            "GAME OVER",
+            f"Final Score: {state['score']}"
+        )
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                break
+
+            if state["current_state"] == "game":
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        state["current_state"] = "pause"
+                    elif event.key == pygame.K_SPACE:
+                        if state["player"].can_shoot():
+                            state["bullets"].append(state["player"].shoot())
+
+            elif state["current_state"] == "pause":
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    state["current_state"] = "game"
+                action = pause_menu.handle_event(event)
+                if action == "restart":
+                    state = reset_game()
+                    state["current_state"] = "game"
+                elif action == "home":
+                    state = reset_game()
+                elif action == "quit":
+                    running = False
+                    break
+
+            elif state["current_state"] == "game_over":
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
+                    state = reset_game()
+                    state["current_state"] = "game"
+                action = game_over_menu.handle_event(event)
+                if action == "restart":
+                    state = reset_game()
+                    state["current_state"] = "game"
+                elif action == "home":
+                    state = reset_game()
+                elif action == "quit":
+                    running = False
+                    break
+
+        if not running:
+            break
+
         if state["current_state"] == "game":
             keys = pygame.key.get_pressed()
             state["player"].move(keys)
             update_stars(state["stars"])
 
-            # Bullets update
             for bullet in state["bullets"][:]:
                 bullet.update()
                 if bullet.rect.bottom < 0:
                     state["bullets"].remove(bullet)
 
-            # Enemy spawn
             state["spawn_timer"] += dt
             if state["spawn_timer"] >= ENEMY_SPAWN_MS and len(state["enemies"]) < MAX_ENEMIES:
                 state["spawn_timer"] = 0
                 state["enemies"].append(Enemy())
 
-            # Enemies update
             for enemy in state["enemies"][:]:
                 enemy.update()
                 if enemy.rect.top > HEIGHT:
                     state["enemies"].remove(enemy)
 
-            # Bullet-enemy collisions
             for bullet in state["bullets"][:]:
                 hit_enemy = None
                 for enemy in state["enemies"]:
@@ -398,13 +493,11 @@ def main():
                     if hit_enemy in state["enemies"]:
                         state["enemies"].remove(hit_enemy)
 
-            # Player-enemy collision => game over
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
                     state["current_state"] = "game_over"
                     break
 
-        # Draw
         draw_background(screen, state["stars"])
 
         for star in state["stars"]:
@@ -416,18 +509,17 @@ def main():
             enemy.draw(screen)
         state["player"].draw(screen)
 
-        # UI
         draw_text(screen, TITLE, 28, WHITE, WIDTH // 2, 28)
         draw_text(screen, f"Score: {state['score']}", 24, WHITE, 12, 12, center=False)
-        draw_text(screen, "W A S D Move   SPACE Shoot", 18, WHITE, WIDTH // 2, HEIGHT - 28)
 
-        if state["current_state"] == "game_over":
-            overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
-            overlay.fill((0, 0, 0, 160))
-            screen.blit(overlay, (0, 0))
-            draw_text(screen, "GAME OVER", 56, RED, WIDTH // 2, HEIGHT // 2 - 40)
-            draw_text(screen, f"Final Score: {state['score']}", 30, WHITE, WIDTH // 2, HEIGHT // 2 + 10)
-            draw_text(screen, "Press R to Restart", 24, YELLOW, WIDTH // 2, HEIGHT // 2 + 50)
+        if state["current_state"] == "game":
+            draw_text(screen, "W A S D Move   SPACE Shoot   ESC Pause", 18, WHITE, WIDTH // 2, HEIGHT - 28)
+        elif state["current_state"] == "pause":
+            draw_text(screen, "Game paused", 18, WHITE, WIDTH // 2, HEIGHT - 28)
+            pause_menu.draw()
+        elif state["current_state"] == "game_over":
+            draw_text(screen, "Use Restart / Home / Quit", 18, WHITE, WIDTH // 2, HEIGHT - 28)
+            game_over_menu.draw()
 
         pygame.display.flip()
 
