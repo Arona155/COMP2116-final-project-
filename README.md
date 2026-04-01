@@ -93,7 +93,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 
 ### Current Status:
 
-The Shooting Plane Game is currently in a demo version (v0.1).
+The Shooting Plane Game is currently in a demo version (v0.2).
 
 ✅ Completed Features:
 - Player-controlled airplane with left/right movement
@@ -103,13 +103,13 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 - Collision detection (game over on impact)
 - Restart functionality (press R to restart) 
 - Player movement (W/S/A/D)
-- Shooting sound 
+- Shooting sound (bullet)
 - Menu (GUI)
 
 ### Future Plan:
 - Enhanced enemy behaviors and difficulty scaling
 - Improved graphics and visual effects
-- Sound effects and background music (Added)
+- Background music 
 - User interface enhancements (menus, HUD) (Added)
 - Performance optimization and bug fixes
 - Setting round (Boss)
