@@ -101,7 +101,10 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 - Shooting (bullet) functionality
 - Score tracking system
 - Collision detection (game over on impact)
-- Restart functionality (press R to restart)
+- Restart functionality (press R to restart) 
+- Player movement (W/S/A/D)
+- Shooting sound 
+- Menu (GUI)
 
 ### Future Plan:
 - Enhanced enemy behaviors and difficulty scaling
