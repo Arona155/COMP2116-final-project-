@@ -78,15 +78,15 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 
 ### Schedule:
 
-- Week 1: Project setup  
-- Week 2: Player movement  
-- Week 3: Enemy system  
-- Week 4: Shooting system  
-- Week 5: Collision and scoring  
-- Week 6: Game over and restart  
-- Week 7: Testing and debugging  
-- Week 8: Packaging and release demo verison
-- Week 9: 
+- 15/3/2026: Project setup  
+- 20/3/2026: Player movement  
+- 21/3/2026: Enemy system  
+- 22/3/2026: Shooting system  
+- 23/3/2026: Collision and scoring  
+- 24/3/2026: Testing and debugging  
+- 25/3/2026: Packaging and release demo verison-v0.1
+- 30/3/2026 Added shooting sound, GUI, player movement(W/S) 
+- 1/4/2026: Release demo-verison-v0.2
 
 ### Algorithm:
 
