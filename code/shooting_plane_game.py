@@ -10,7 +10,7 @@ def resource_path(relative_path):
         base_path = sys._MEIPASS  # PyInstaller 暫存資料夾
     except Exception:
         base_path = Path(__file__).parent
-        return Path(base_path) / relative_path
+    return Path(base_path) / relative_path
 
 class SoundManager:
     def __init__(self):
