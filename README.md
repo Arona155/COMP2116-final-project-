@@ -103,17 +103,14 @@ The Shooting Plane Game is currently in a demo version (v0.1).
 - Collision detection (game over on impact)
 - Restart functionality (press R to restart)
 
-🚧 In Progress / Future Improvements:
+### Future Plan:
 - Enhanced enemy behaviors and difficulty scaling
 - Improved graphics and visual effects
-- Sound effects and background music
-- User interface enhancements (menus, HUD)
+- Sound effects and background music (Added)
+- User interface enhancements (menus, HUD) (Added)
 - Performance optimization and bug fixes
-
-
-
-### Future Plan:
-
+- Setting round (Boss)
+- Improve shooting system
 
 ## Demo (YoutubeURL): 
 
