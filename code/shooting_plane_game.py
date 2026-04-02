@@ -48,21 +48,15 @@ _sound_manager = None
 class SoundManager:
     def __init__(self):
         self.sounds = {}
-        self.music_playing = False
+        self.menu_bgm_path = resource_path("assets/sound/bgm.mp3")
+        self.ingame_bgm_path = resource_path("assets/sound/ingamebgm.mp3")
         self.load_all_sounds()
 
     def load_all_sounds(self):
         try:
-            sound_path = resource_path("assets/sound/laser.wav") #
-
+            sound_path = resource_path("assets/sound/laser.wav")
             self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
-            self.sounds["shoot"].set_volume(1)
-
-            sound_path = resource_path("assets/sound/bgm.mp3")
-
-            self.sounds["bgm"] = pygame.mixer.Sound(str(sound_path))
-            self.sounds["bgm"].set_volume(10)
-
+            self.sounds["shoot"].set_volume(1.0)
             return True
 
         except (pygame.error, FileNotFoundError) as e:
@@ -70,11 +64,41 @@ class SoundManager:
             print("Game will run without sound")
             return False
 
-    def play(self, sound_name, times = 0):
+    def play(self, sound_name, loops=0):
         if sound_name in self.sounds and self.sounds[sound_name]:
-            self.sounds[sound_name].play(times)
+            self.sounds[sound_name].play(loops=loops)
             return True
         return False
+
+    def stop(self, sound_name):
+        if sound_name in self.sounds and self.sounds[sound_name]:
+            self.sounds[sound_name].stop()
+
+    def play_music(self, music_path, loops=-1, restart=False, volume=0.6):
+        if not pygame.mixer.get_init():
+            return False
+
+        try:
+            if restart:
+                pygame.mixer.music.stop()
+            pygame.mixer.music.load(str(music_path))
+            pygame.mixer.music.set_volume(volume)
+            pygame.mixer.music.play(loops=loops)
+            return True
+        except (pygame.error, FileNotFoundError) as e:
+            print(f"Music load/play failed: {e}")
+            return False
+
+    def stop_music(self):
+        if pygame.mixer.get_init():
+            pygame.mixer.music.stop()
+
+    def play_menu_music(self, restart=False):
+        return self.play_music(self.menu_bgm_path, loops=-1, restart=restart, volume=0.6)
+
+    def play_ingame_music(self, restart=False):
+        return self.play_music(self.ingame_bgm_path, loops=-1, restart=restart, volume=0.6)
+
 
 def get_sound_manager():
     global _sound_manager
@@ -357,8 +381,6 @@ def main():
     pygame.display.set_caption(TITLE)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
-    get_sound_manager().play("bgm",-1) #loop bgm
-    # _ = sound  # keep for future use
 
     menu = MainMenu(screen)
     state = reset_game()
@@ -380,12 +402,15 @@ def main():
         dt = clock.tick(FPS)
 
         if state["current_state"] == "menu":
+            get_sound_manager().play_menu_music(restart=True)
             result = menu.run()
             if result == "start":
                 state = reset_game()
                 state["current_state"] = "game"
+                get_sound_manager().play_ingame_music(restart=True)
                 continue
             if result == "quit":
+                get_sound_manager().stop_music()
                 running = False
                 break
 
@@ -397,6 +422,7 @@ def main():
             if state["current_state"] == "game":
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
+                        get_sound_manager().stop_music()
                         state["current_state"] = "pause"
                     elif event.key == pygame.K_SPACE:
                         if state["player"].can_shoot():
@@ -419,13 +445,17 @@ def main():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
                     state = reset_game()
                     state["current_state"] = "game"
+                    get_sound_manager().play_ingame_music(restart=True)
                 action = game_over_menu.handle_event(event)
                 if action == "restart":
                     state = reset_game()
                     state["current_state"] = "game"
+                    get_sound_manager().play_ingame_music(restart=True)
                 elif action == "home":
+                    get_sound_manager().stop_music()
                     state = reset_game()
                 elif action == "quit":
+                    get_sound_manager().stop_music()
                     running = False
                     break
 
@@ -467,6 +497,7 @@ def main():
 
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
+                    get_sound_manager().stop_music()
                     state["current_state"] = "game_over"
                     game_over_menu = OverlayMenu(
                         screen,
