@@ -53,21 +53,26 @@ class SoundManager:
 
     def load_all_sounds(self):
         try:
-            sound_path = resource_path("assets/laser.wav")
+            sound_path = resource_path("assets/laser.wav") #
 
             self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
             self.sounds["shoot"].set_volume(0.03)
 
-            print("Sounds loaded successfully!")
+            sound_path = resource_path("assets/bgm.mp3")
+
+            self.sounds["bgm"] = pygame.mixer.Sound(str(sound_path))
+            self.sounds["bgm"].set_volume(0.1)
+
             return True
+
         except (pygame.error, FileNotFoundError) as e:
             print(f"Sound load failed: {e}")
             print("Game will run without sound")
             return False
 
-    def play(self, sound_name):
+    def play(self, sound_name, times = 0):
         if sound_name in self.sounds and self.sounds[sound_name]:
-            self.sounds[sound_name].play()
+            self.sounds[sound_name].play(times)
             return True
         return False
 
@@ -382,6 +387,7 @@ def main():
     pygame.display.set_caption(TITLE)
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
+    get_sound_manager().play("bgm",-1) #loop bgm
     # _ = sound  # keep for future use
 
     menu = MainMenu(screen)
