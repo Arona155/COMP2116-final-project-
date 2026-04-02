@@ -34,6 +34,14 @@ ENEMY_MAX_SPEED = 5
 ENEMY_SPAWN_MS = 900
 MAX_ENEMIES = 12
 
+ELITE_ENEMY_WIDTH = 50
+ELITE_ENEMY_HEIGHT = 60
+ELITE_ENEMY_SPEED = 4
+ELITE_ENEMY_SHOOT_DELAY_MS = 1500 
+ELITE_BULLET_SPEED = 8
+ELITE_SCORE = 50 
+ELITE_HEALTH = 3 
+
 WHITE = (245, 245, 245)
 BLACK = (20, 20, 20)
 RED = (220, 60, 60)
@@ -184,7 +192,68 @@ class Enemy:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
-        
+
+class EliteEnemy:
+    def __init__(self):
+        self.width = ELITE_ENEMY_WIDTH
+        self.height = ELITE_ENEMY_HEIGHT
+        self.rect = pygame.Rect(
+            random.randint(0, WIDTH - self.width),
+            random.randint(-150, -40),
+            self.width,
+            self.height,
+        )
+        self.speed = ELITE_ENEMY_SPEED + random.uniform(-0.5, 0.5) 
+        self.x_drift = random.choice([-1, 0, 1]) * random.uniform(0.3, 1.3)
+        self.health = ELITE_HEALTH
+        self.score_value = ELITE_SCORE
+        self.image = pygame.image.load(resource_path("assets/image/Elite-enemy.png")).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
+        self.last_shot_time = pygame.time.get_ticks()
+
+    def update(self):
+        self.rect.y += self.speed
+        self.rect.x += self.x_drift
+
+        # 邊界反彈
+        if self.rect.left < 0:
+            self.rect.left = 0
+            self.x_drift *= -1
+        elif self.rect.right > WIDTH:
+            self.rect.right = WIDTH
+            self.x_drift *= -1
+
+    def draw(self, screen):
+        screen.blit(self.image, self.rect)
+        bar_width = self.width
+        bar_height = 5
+        bar_x = self.rect.x
+        bar_y = self.rect.y - 8
+        health_ratio = self.health / ELITE_HEALTH
+        pygame.draw.rect(screen, RED, (bar_x, bar_y, bar_width, bar_height))
+        pygame.draw.rect(screen, GREEN, (bar_x, bar_y, bar_width * health_ratio, bar_height))
+
+    def take_damage(self):
+        self.health -= 1
+        return self.health <= 0
+
+    def shoot(self, now_ms):
+        if now_ms - self.last_shot_time >= ELITE_ENEMY_SHOOT_DELAY_MS:
+            self.last_shot_time = now_ms
+            bullet_x = self.rect.centerx - 4
+            bullet_y = self.rect.bottom
+            return EliteBullet(bullet_x, bullet_y)
+        return None
+
+class EliteBullet:
+    def __init__(self, x, y):
+        self.rect = pygame.Rect(x, y, 8, 12)
+
+    def update(self):
+        self.rect.y += ELITE_BULLET_SPEED
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, RED, self.rect, border_radius=3)
 
 class Button:
     def __init__(self, x, y, width, height, text, color, hover_color, text_color):
@@ -358,6 +427,11 @@ def draw_text(screen, text, size, color, x, y, center=True):
         rect.topleft = (x, y)
     screen.blit(surface, rect)
 
+def get_elite_spawn_probability(score):
+    if score < 100:
+        return 0.0
+    extra = (score - 100) // 200 * 0.1
+    return min(0.6, 0.1 + extra)
 
 def reset_game():
     return {
@@ -472,13 +546,28 @@ def main():
                 if bullet.rect.bottom < 0:
                     state["bullets"].remove(bullet)
 
+            for eb in state["elite_bullets"][:]:
+                eb.update()
+                if eb.rect.top > HEIGHT:
+                    state["elite_bullets"].remove(eb)
+
             state["spawn_timer"] += dt
             if state["spawn_timer"] >= ENEMY_SPAWN_MS and len(state["enemies"]) < MAX_ENEMIES:
                 state["spawn_timer"] = 0
-                state["enemies"].append(Enemy())
+                score = state["score"]
+                elite_prob = get_elite_spawn_probability(score)
+                if random.random() < elite_prob:
+                    state["enemies"].append(EliteEnemy())
+                else:
+                    state["enemies"].append(Enemy())
 
+            now_ms = pygame.time.get_ticks()
             for enemy in state["enemies"][:]:
                 enemy.update()
+                if isinstance(enemy, EliteEnemy):
+                    eb = enemy.shoot(now_ms)
+                    if eb:
+                        state["elite_bullets"].append(eb)
                 if enemy.rect.top > HEIGHT:
                     state["enemies"].remove(enemy)
 
@@ -489,14 +578,32 @@ def main():
                         hit_enemy = enemy
                         break
                 if hit_enemy:
-                    state["score"] += hit_enemy.score_value
-                    if bullet in state["bullets"]:
-                        state["bullets"].remove(bullet)
-                    if hit_enemy in state["enemies"]:
-                        state["enemies"].remove(hit_enemy)
+                    if isinstance(hit_enemy, EliteEnemy):
+                        if hit_enemy.take_damage():
+                            state["score"] += hit_enemy.score_value
+                            state["enemies"].remove(hit_enemy)
+                        if bullet in state["bullets"]:
+                            state["bullets"].remove(bullet)
+                    else:
+                        state["score"] += hit_enemy.score_value
+                        if bullet in state["bullets"]:
+                            state["bullets"].remove(bullet)
+                        if hit_enemy in state["enemies"]:
+                            state["enemies"].remove(hit_enemy)
 
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
+                    get_sound_manager().stop_music()
+                    state["current_state"] = "game_over"
+                    game_over_menu = OverlayMenu(
+                        screen,
+                        "GAME OVER",
+                        f"Final Score: {state['score']}"
+                    )
+                    break
+
+            for eb in state["elite_bullets"]:
+                if state["player"].rect.colliderect(eb.rect):
                     get_sound_manager().stop_music()
                     state["current_state"] = "game_over"
                     game_over_menu = OverlayMenu(
@@ -513,6 +620,8 @@ def main():
 
         for bullet in state["bullets"]:
             bullet.draw(screen)
+        for eb in state["elite_bullets"]:
+            eb.draw(screen)
         for enemy in state["enemies"]:
             enemy.draw(screen)
         state["player"].draw(screen)
