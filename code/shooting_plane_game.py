@@ -89,6 +89,8 @@ class Player:
         self.height = 50
         self.rect = pygame.Rect(WIDTH // 2 - self.width // 2, HEIGHT - 80, self.width, self.height)
         self.cooldown = 0
+        self.image = pygame.image.load(resource_path("assets/picture/plane.png")).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
 
     def move(self, keys):
         if keys[pygame.K_a]:
@@ -107,24 +109,7 @@ class Player:
             self.cooldown -= 1
 
     def draw(self, screen):
-        body_points = [
-            (self.rect.centerx, self.rect.top),
-            (self.rect.left + 10, self.rect.bottom - 8),
-            (self.rect.centerx, self.rect.bottom - 18),
-            (self.rect.right - 10, self.rect.bottom - 8),
-        ]
-        pygame.draw.polygon(screen, BLUE, body_points)
-        pygame.draw.circle(screen, WHITE, (self.rect.centerx, self.rect.top + 18), 6)
-        pygame.draw.polygon(
-            screen,
-            GREEN,
-            [
-                (self.rect.left + 4, self.rect.centery + 4),
-                (self.rect.centerx, self.rect.centery - 4),
-                (self.rect.right - 4, self.rect.centery + 4),
-                (self.rect.centerx, self.rect.centery + 10),
-            ],
-        )
+        screen.blit(self.image, self.rect)
 
     def can_shoot(self):
         return self.cooldown == 0
@@ -159,6 +144,8 @@ class Enemy:
         self.speed = random.randint(ENEMY_MIN_SPEED, ENEMY_MAX_SPEED)
         self.x_drift = random.choice([-1, 0, 1]) * random.uniform(0.2, 1.1)
         self.score_value = 10 if self.width < 44 else 20
+        self.image = pygame.image.load(resource_path("assets/picture/tower.png")).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
 
     def update(self):
         self.rect.y += self.speed
@@ -172,25 +159,8 @@ class Enemy:
             self.x_drift *= -1
 
     def draw(self, screen):
-        body = [
-            (self.rect.centerx, self.rect.bottom),
-            (self.rect.left + 8, self.rect.top + 12),
-            (self.rect.centerx, self.rect.top),
-            (self.rect.right - 8, self.rect.top + 12),
-        ]
-        pygame.draw.polygon(screen, RED, body)
-        pygame.draw.polygon(
-            screen,
-            WHITE,
-            [
-                (self.rect.left, self.rect.centery),
-                (self.rect.centerx - 8, self.rect.centery + 8),
-                (self.rect.right, self.rect.centery),
-                (self.rect.centerx + 8, self.rect.centery - 2),
-            ],
-        )
-        pygame.draw.circle(screen, BLACK, (self.rect.centerx, self.rect.top + 12), 4)
-
+        screen.blit(self.image, self.rect)
+        
 
 class Button:
     def __init__(self, x, y, width, height, text, color, hover_color, text_color):
