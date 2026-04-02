@@ -105,15 +105,17 @@ The Shooting Plane Game is currently in a demo version (v0.2).
 - Player movement (W/S/A/D)
 - Shooting sound (bullet)
 - Menu (GUI)
+- Background Music
+- Ingame Music
 
 ### Future Plan:
-- Enhanced enemy behaviors and difficulty scaling
-- Improved graphics and visual effects
-- Background music 
+- Enhanced enemy behaviors and difficulty scaling (TBD)
+- Improved graphics and visual effects (TBD)
+- Background music (Added)
 - User interface enhancements (menus, HUD) (Added)
-- Performance optimization and bug fixes
-- Setting round (Boss)
-- Improve shooting system
+- Performance optimization and bug fixes (TBD)
+- Setting round (Boss) (TBD)
+- Improve shooting system (TBD)
 
 ## Demo (YoutubeURL): 
 
