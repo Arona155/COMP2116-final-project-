@@ -65,10 +65,6 @@ A restart feature was added, allowing players to quickly restart the game by pre
 8. Packaging & Distribution:
 Finally, the game was packaged into an executable file for easy distribution. GitHub was used to manage source code, while GitHub Releases was used to distribute the playable version.
 
-### Tools Used:
-- Language: Python 3.11
-- Library: Pygame
-- Documentation: Markdown (README.md)
 
 ### Members:
 
@@ -125,3 +121,8 @@ The Shooting Plane Game is currently in a demo version (v0.3).
 
 
 ## Declaration:
+### Tools Used: 
+- Language: Python 3.11
+- Library: Pygame
+- Documentation: Markdown (README.md)
+
