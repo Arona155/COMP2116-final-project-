@@ -53,12 +53,12 @@ class SoundManager:
 
     def load_all_sounds(self):
         try:
-            sound_path = resource_path("assets/laser.wav") #
+            sound_path = resource_path("assets/sound/laser.wav") #
 
             self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
             self.sounds["shoot"].set_volume(0.03)
 
-            sound_path = resource_path("assets/bgm.mp3")
+            sound_path = resource_path("assets/sound/bgm.mp3")
 
             self.sounds["bgm"] = pygame.mixer.Sound(str(sound_path))
             self.sounds["bgm"].set_volume(0.1)
@@ -89,7 +89,7 @@ class Player:
         self.height = 50
         self.rect = pygame.Rect(WIDTH // 2 - self.width // 2, HEIGHT - 80, self.width, self.height)
         self.cooldown = 0
-        self.image = pygame.image.load(resource_path("assets/picture/plane.png")).convert_alpha()
+        self.image = pygame.image.load(resource_path("assets/image/player.png")).convert_alpha()
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
 
     def move(self, keys):
@@ -144,7 +144,7 @@ class Enemy:
         self.speed = random.randint(ENEMY_MIN_SPEED, ENEMY_MAX_SPEED)
         self.x_drift = random.choice([-1, 0, 1]) * random.uniform(0.2, 1.1)
         self.score_value = 10 if self.width < 44 else 20
-        self.image = pygame.image.load(resource_path("assets/picture/tower.png")).convert_alpha()
+        self.image = pygame.image.load(resource_path("assets/image/enemy.png")).convert_alpha()
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
 
     def update(self):
