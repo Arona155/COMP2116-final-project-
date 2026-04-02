@@ -56,12 +56,12 @@ class SoundManager:
             sound_path = resource_path("assets/sound/laser.wav") #
 
             self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
-            self.sounds["shoot"].set_volume(0.03)
+            self.sounds["shoot"].set_volume(1)
 
             sound_path = resource_path("assets/sound/bgm.mp3")
 
             self.sounds["bgm"] = pygame.mixer.Sound(str(sound_path))
-            self.sounds["bgm"].set_volume(0.1)
+            self.sounds["bgm"].set_volume(10)
 
             return True
 
