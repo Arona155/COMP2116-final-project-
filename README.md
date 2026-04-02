@@ -73,7 +73,7 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 
 
 ### Schedule:
-
+(Top to Bottom)
 - 15/3/2026: Project setup  
 - 20/3/2026: Player movement  
 - 21/3/2026: Enemy system  
