@@ -215,7 +215,6 @@ class EliteEnemy:
         self.rect.y += self.speed
         self.rect.x += self.x_drift
 
-        # 邊界反彈
         if self.rect.left < 0:
             self.rect.left = 0
             self.x_drift *= -1
@@ -225,13 +224,6 @@ class EliteEnemy:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
-        bar_width = self.width
-        bar_height = 5
-        bar_x = self.rect.x
-        bar_y = self.rect.y - 8
-        health_ratio = self.health / ELITE_HEALTH
-        pygame.draw.rect(screen, RED, (bar_x, bar_y, bar_width, bar_height))
-        pygame.draw.rect(screen, GREEN, (bar_x, bar_y, bar_width * health_ratio, bar_height))
 
     def take_damage(self):
         self.health -= 1
