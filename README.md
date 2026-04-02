@@ -87,13 +87,14 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 - 25/3/2026: Packaging and release demo verison-v0.1
 - 30/3/2026 Added shooting sound, GUI, player movement(W/S) 
 - 1/4/2026: Release demo-verison-v0.2
+- 2/4/2026: Added background music and ingame music, fix some bugs, release demo-verison-v0.3 
 
 ### Algorithm:
 
 
 ### Current Status:
 
-The Shooting Plane Game is currently in a demo version (v0.2).
+The Shooting Plane Game is currently in a demo version (v0.3).
 
 ✅ Completed Features:
 - Player-controlled airplane with left/right movement
