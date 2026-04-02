@@ -438,6 +438,7 @@ def reset_game():
         "player": Player(),
         "bullets": [],
         "enemies": [],
+        "elite_bullets": [], 
         "score": 0,
         "current_state": "menu",
         "spawn_timer": 0,
