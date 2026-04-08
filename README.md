@@ -86,7 +86,21 @@ Finally, the game was packaged into an executable file for easy distribution. Gi
 - 2/4/2026: Added background music and ingame music, fix some bugs, release demo-verison-v0.3 
 
 ### Algorithm:
-
+Algorithms Used to Optimize Games
+1.Spatial partitioning algorithms (Quadtree, Octree, BVH)
+  Reduce unnecessary rendering, collision checks, and physics calculations by organizing game objects spatially.
+2.Frustum culling
+  Skips drawing objects outside the camera view to improve FPS and GPU performance.
+3.LOD (Level of Detail)
+  Uses lower-polygon models and simpler textures for distant objects to lower rendering cost.
+4.A pathfinding & NavMesh*
+  Optimize NPC and enemy movement; NavMesh precomputes walkable areas for faster AI navigation.
+5.FSMs & Behavior Trees
+  Structure AI logic efficiently, making NPC behavior predictable and CPU-friendly.
+6.Collision optimization algorithms (GJK, EPA, Sweep and Prune)
+  Speed up physics detection and reduce unnecessary physical computations.
+7. Object pooling
+  Reuses game objects instead of frequent creation/destruction, reducing memory overhead and lag.
 
 ### Current Status:
 
