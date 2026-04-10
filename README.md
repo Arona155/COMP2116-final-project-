@@ -60,10 +60,6 @@ In each iteration, we integrated the four core activities:
 
 
 
-| Role | Member Name | Member Student ID | Responsibilities	|
-|Sprint 1: Core Engine|----------|----------|----------|
-
-
 4. Coping with Change
 In accordance with Agile principles, we embraced changes during the process. For instance, the transition from v0.1 to v0.2 involved re-evaluating the player controls and adding GUI feedback, ensuring the software evolved to meet a higher quality standard as defined in our validation phase.
 
