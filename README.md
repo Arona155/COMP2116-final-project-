@@ -58,7 +58,6 @@ In each iteration, we integrated the four core activities:
 
 - Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
 
-3.Sprint Cycles & Milestones
   ------------------------------------------------------------------------------------
   Sprint        Date      Focus         Key Deliverables / Activities
   ------------- --------- ------------- ----------------------------------------------
