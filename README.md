@@ -42,7 +42,7 @@ The game can be used for:
 
 ### Development Process:
 ### Software Development Process (Agile Methodology)
-Our team adopted the Agile Development methodology to develop the "Shooting Plane Game." Following the principles outlined in the COMP2116 course materials, we prioritized iterative development, rapid prototyping, and continuous refinement to ensure the software evolved based on testing and validation.
+Our team adopted the Agile Development methodology to develop the "Shooting Plane Game.", we prioritized iterative development, rapid prototyping, and continuous refinement to ensure the software evolved based on testing and validation.
 
 1. Agile Framework: Iterative & Incremental
 Instead of a rigid linear process, we organized our development into three focused Sprints. This allowed us to maintain a "Minimum Viable Product" (v0.1) and progressively add features (Audio, GUI) through software evolution.
@@ -65,7 +65,7 @@ In each iteration, we integrated the four core activities:
 | Sprint 1: Core Engine | 15/03 - 23/03 | Fundamental Mechanics | - Project setup & Environment configuration- Player movement & Shooting mechanics- Enemy AI system & Collision detection |
 | Sprint 2: Alpha Release | 24/03 - 25/03 | Stability & First Demo | - Integrated testing & bug fixing- Release Demo Version v0.1 (Core Gameplay) |
 | Sprint 3: Enhancement | 30/03 - 01/04 | User Experience (UX) | - Added GUI & Shooting sound effects- Refined Player Movement (W/S keys)- Release Demo Version v0.2 |
-| Final Sprint: Polish | 02/04 | Final Delivery | - Integrated BGM & In-game music- Final bug squashing- Release Demo Version v0.3 (Final) |
+| Final Sprint: Polish | 02/04 | Final Delivery | - Integrated BGM & In-game music- Final bug squashing- Release Demo Version v0.3 |
 
 
 4. Coping with Change
