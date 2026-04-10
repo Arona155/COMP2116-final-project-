@@ -60,7 +60,12 @@ In each iteration, we integrated the four core activities:
 
 3. Sprint Cycles & Milestones
 
-
+| Sprint | Date | Focus | Key Deliverables / Activities |
+| --- | --- | --- | --- |
+| Sprint 1: Core Engine | 15/03 - 23/03 | Fundamental Mechanics | - Project setup & Environment configuration- Player movement & Shooting mechanics- Enemy AI system & Collision detection |
+| Sprint 2: Alpha Release | 24/03 - 25/03 | Stability & First Demo | - Integrated testing & bug fixing- Release Demo Version v0.1 (Core Gameplay) |
+| Sprint 3: Enhancement | 30/03 - 01/04 | User Experience (UX) | - Added GUI & Shooting sound effects- Refined Player Movement (W/S keys)- Release Demo Version v0.2 |
+| Final Sprint: Polish | 02/04 | Final Delivery | - Integrated BGM & In-game music- Final bug squashing- Release Demo Version v0.3 (Final) |
 
 
 4. Coping with Change
