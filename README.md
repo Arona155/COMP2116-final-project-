@@ -41,7 +41,7 @@ The game can be used for:
 # 3. Project Development Plan
 
 ### Development Process:
-Software Development Process (Agile Methodology)
+### Software Development Process (Agile Methodology)
 Our team adopted the Agile Development methodology to develop the "Shooting Plane Game." Following the principles outlined in the COMP2116 course materials, we prioritized iterative development, rapid prototyping, and continuous refinement to ensure the software evolved based on testing and validation.
 
 1. Agile Framework: Iterative & Incremental
