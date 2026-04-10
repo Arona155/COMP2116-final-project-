@@ -59,7 +59,7 @@ Validation: Constant debugging and playtesting to identify collision or scoring 
 Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
 
 
-3. Sprint Cycles & Milestones
+
 | Role | Member Name | Member Student ID | Responsibilities	|
 |----------|----------|----------|----------|
 
