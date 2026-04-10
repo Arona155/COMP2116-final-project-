@@ -58,25 +58,10 @@ In each iteration, we integrated the four core activities:
 
 - Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
 
-# Project Documentation
+3. Sprint Cycles & Milestones
 
-  ------------------------------------------------------------------------------------
-  Sprint        Date      Focus         Key Deliverables / Activities
-  ------------- --------- ------------- ----------------------------------------------
-  Sprint 1:     15/03 -   Fundamental   \- Project setup & Environment configuration-
-  Core Engine   23/03     Mechanics     Player movement & Shooting mechanics- Enemy AI
-                                        system & Collision detection
 
-  Sprint 2:     24/03 -   Stability &   \- Integrated testing & bug fixing- Release
-  Alpha Release 25/03     First Demo    Demo Version v0.1 (Core Gameplay)
 
-  Sprint 3:     30/03 -   User          \- Added GUI & Shooting sound effects- Refined
-  Enhancement   01/04     Experience    Player Movement (W/S keys)- Release Demo
-                          (UX)          Version v0.2
-
-  Final Sprint: 02/04     Final         \- Integrated BGM & In-game music- Final bug
-  Polish                  Delivery      squashing- Release Demo Version v0.3 (Final)
-  ------------------------------------------------------------------------------------
 
 4. Coping with Change
 In accordance with Agile principles, we embraced changes during the process. For instance, the transition from v0.1 to v0.2 involved re-evaluating the player controls and adding GUI feedback, ensuring the software evolved to meet a higher quality standard as defined in our validation phase.
