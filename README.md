@@ -41,29 +41,32 @@ The game can be used for:
 # 3. Project Development Plan
 
 ### Development Process:
-1. Initial Setup:
-The project began with setting up the basic game environment using Python. A simple window and game loop were created to handle rendering and user input.
+Software Development Process (Agile Methodology)
+Our team adopted the Agile Development methodology to develop the "Shooting Plane Game." Following the principles outlined in the COMP2116 course materials, we prioritized iterative development, rapid prototyping, and continuous refinement to ensure the software evolved based on testing and validation.
 
-2. Player Implementation:
-The player-controlled airplane was implemented first. Basic movement controls (left and right using keyboard input) were added to allow user interaction.
+1. Agile Framework: Iterative & Incremental
+Instead of a rigid linear process, we organized our development into three focused Sprints. This allowed us to maintain a "Minimum Viable Product" (v0.1) and progressively add features (Audio, GUI) through software evolution.
 
-3. Enemy System:
-Enemy airplanes were introduced with basic spawning and movement behavior. This added challenge and interaction to the game.
+2. Software Process Activities within Sprints
+In each iteration, we integrated the four core activities:
 
-4. Shooting Mechanism:
-A bullet system was developed, allowing the player to shoot projectiles. Collision detection between bullets and enemy planes was implemented.
+Specification: Defining gameplay requirements and user interactions.
 
-5. Scoring System:
-A scoring system was added to reward players for destroying enemy planes. Each enemy contributes to the total score.
+Design & Implementation: Building the game logic, graphics, and sound systems.
 
-6. Collision Detection & Game Over:
-Collision detection between the player and enemy planes was implemented. The game ends immediately when a collision occurs, increasing difficulty and player awareness.
+Validation: Constant debugging and playtesting to identify collision or scoring issues.
 
-7. Restart Functionality:
-A restart feature was added, allowing players to quickly restart the game by pressing a key (R), improving user experience.
+Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
 
-8. Packaging & Distribution:
-Finally, the game was packaged into an executable file for easy distribution. GitHub was used to manage source code, while GitHub Releases was used to distribute the playable version.
+
+3. Sprint Cycles & Milestones
+| Role | Member Name | Member Student ID | Responsibilities	|
+|----------|----------|----------|----------|
+
+
+4. Coping with Change
+In accordance with Agile principles, we embraced changes during the process. For instance, the transition from v0.1 to v0.2 involved re-evaluating the player controls and adding GUI feedback, ensuring the software evolved to meet a higher quality standard as defined in our validation phase.
+
 
 
 ### Members:
