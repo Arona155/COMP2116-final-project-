@@ -134,6 +134,7 @@ The Shooting Plane Game is currently in a demo version (v0.3).
 - Performance optimization and bug fixes (TBD)
 - Setting round (Boss) (TBD)
 - Improve shooting system (TBD)
+- Special skill system (TBD)
 
 ## Demo (YoutubeURL): 
 
