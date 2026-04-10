@@ -50,13 +50,13 @@ Instead of a rigid linear process, we organized our development into three focus
 2. Software Process Activities within Sprints
 In each iteration, we integrated the four core activities:
 
-Specification: Defining gameplay requirements and user interactions.
+- Specification: Defining gameplay requirements and user interactions.
 
-Design & Implementation: Building the game logic, graphics, and sound systems.
+- Design & Implementation: Building the game logic, graphics, and sound systems.
 
-Validation: Constant debugging and playtesting to identify collision or scoring issues.
+- Validation: Constant debugging and playtesting to identify collision or scoring issues.
 
-Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
+- Evolution: Refining player movement (W/S keys) and adding immersive elements (BGM) based on previous version performance.
 
 
 
