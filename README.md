@@ -97,7 +97,7 @@ How it works
 -Different states have independent input handling, updates, and rendering.
 -It prevents messy code and decouples menu, gameplay, pause, and game-over systems.
   
-## Key code
+Key code
 if state["current_state"] == "menu":
     # run main menu
 elif state["current_state"] == "game":
