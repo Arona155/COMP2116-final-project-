@@ -81,7 +81,8 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 30/3/2026 Added shooting sound, GUI, player movement(W/S) 
 - 1/4/2026: Release demo-verison-v0.2
 - 2/4/2026: Added background music and ingame music, fix some bugs, release demo-verison-v0.3
-- 3/4/2026: Added Elite Emeny airplane 
+- 3/4/2026: Added Elite Emeny airplane and shooting bullet
+- 12/4/2026 Managing the structure of the code 
 
 ### Algorithm:
 Finite State Machine (FSM)
