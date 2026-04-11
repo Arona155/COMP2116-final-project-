@@ -84,6 +84,88 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 3/4/2026: Added Elite Emeny airplane 
 
 ### Algorithm:
+Finite State Machine (FSM)
+This program uses a finite state machine algorithm to manage the entire game flow and separate different game logics.
+
+Core States
+-menu: Main menu interface
+-game: In-game playing logic
+-pause: Paused state
+-game_over: Game over interface
+How it works
+-The game uses current_state to control which logic runs.
+-Different states have independent input handling, updates, and rendering.
+-It prevents messy code and decouples menu, gameplay, pause, and game-over systems.
+  
+Key code
+if state["current_state"] == "menu":
+    # run main menu
+elif state["current_state"] == "game":
+    # run game logic
+elif state["current_state"] == "pause":
+    # show pause menu
+elif state["current_state"] == "game_over":
+    # show game over interface
+    
+Core value: Decouples logic across different game stages
+It separates menu, gameplay, pause, and game-over logic so they do not interfere with each other, making the code cleaner, more stable, and easier to maintain.
+
+Cooldown / Timer Algorithm
+This program uses cooldown and timer algorithms to control shooting frequency and prevent unlimited firing, ensuring game balance.
+Key Implementations
+1.Player shooting cooldown (frame counting)
+# Check if player can shoot
+def can_shoot(self):
+    return self.cooldown == 0  
+
+# Shoot and set cooldown
+def shoot(self):
+    self.cooldown = 12  # Lock shooting for 12 frames
+    return Bullet(...)  
+
+# Update cooldown every frame
+if self.cooldown > 0:
+    self.cooldown -= 1
+    
+2.Elite enemy shooting (timestamp method)
+
+def shoot(self, now_ms):
+    # Check if enough time has passed since last shot
+    if now_ms - self.last_shot_time >= ELITE_ENEMY_SHOOT_DELAY_MS:
+        self.last_shot_time = now_ms  # Reset timer
+        return EliteBullet(...)
+Core Value
+Stabilizes firing rate and avoids overly fast shooting.
+Improves game balance and difficulty control.
+
+Object Pool / List Management Algorithm
+
+This program uses list-based object management to handle the lifecycle of bullets, enemies, and elite bullets.
+It dynamically updates, checks, and removes objects to keep the game efficient and stable.
+Key Code 
+
+# Manage bullets: update and remove off-screen bullets
+for bullet in state["bullets"][:]:
+    bullet.update()
+    if bullet.rect.bottom < 0:
+        state["bullets"].remove(bullet)
+
+# Manage enemies: update and remove off-screen enemies
+for enemy in state["enemies"][:]:
+    enemy.update()
+    if enemy.rect.top > HEIGHT:
+        state["enemies"].remove(enemy)
+
+# Manage elite bullets: update and remove invalid ones
+for eb in state["elite_bullets"][:]:
+    eb.update()
+    if eb.rect.top > HEIGHT:
+        state["elite_bullets"].remove(eb)
+Core Value
+Maintains object lifecycle safely
+Prevents memory waste
+Avoids errors when deleting objects during iteration
+Decouples object logic and keeps the game efficient
 
 ### Current Status:
 
