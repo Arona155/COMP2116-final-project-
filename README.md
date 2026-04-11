@@ -10,19 +10,16 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 
 # 2. Project Purpose
-### Development Methodology:
-This project follows an Agile development process.
+### Software Development Process Applied:
+The development of the Shooting Plane Game follows the Agile Development Methodology. This project utilizes an incremental and iterative approach, where the software is developed as a series of versions (v0.1 to v0.3). Each iteration focuses on delivering working code quickly—from basic player movement to the integration of complex systems like collision, scoring, and multimedia elements.
 
 ### Why Agile?
-Agile was chosen over the Waterfall model because it allows for incremental development and continuous improvement.
+We chose the Agile approach over the Waterfall model for several strategic reasons:
+- Response to Change: Unlike the Waterfall model’s inflexible partitioning , Agile allows us to embrace changes in game requirements or mechanics (such as adding W/S keys or background music) based on testing feedback.
+- Rapid Delivery: Agile focuses on delivering a functional product early. As seen in our schedule, we released a demo (v0.1) within 10 days, allowing for early validation of core gameplay.
+- Efficiency for Small Teams: For a Python-based arcade game, Agile minimizes documentation overhead and maximizes focus on code and working software.
+- Strategic Fit: Given the dynamic nature of game development, Agile provides a better "Time-to-Market" advantage and fits our need for flexibility in the design of "Fun & Joy" elements.
 
-During the development of the Shooting Plane Game, features were implemented step by step (e.g., player movement, enemies, shooting system), and each component was tested immediately after completion. This made it easier to:
-
-- Identify and fix bugs early
-- Adjust game mechanics quickly
-- Improve gameplay based on testing
-
-Compared to Waterfall, which requires all requirements to be defined upfront, Agile provides more flexibility, which is suitable for game development where ideas often evolve during the process.
 
 ### Target Market / Usage:
 
