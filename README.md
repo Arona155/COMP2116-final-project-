@@ -115,23 +115,23 @@ Cooldown / Timer Algorithm
 This program uses cooldown and timer algorithms to control shooting frequency and prevent unlimited firing, ensuring game balance.
 Key Implementations
 1.Player shooting cooldown (frame counting)
-# Check if player can shoot
+- Check if player can shoot
 def can_shoot(self):
     return self.cooldown == 0  
 
-# Shoot and set cooldown
+-Shoot and set cooldown
 def shoot(self):
     self.cooldown = 12  # Lock shooting for 12 frames
     return Bullet(...)  
 
-# Update cooldown every frame
+- Update cooldown every frame
 if self.cooldown > 0:
     self.cooldown -= 1
     
 2.Elite enemy shooting (timestamp method)
 
 def shoot(self, now_ms):
-    # Check if enough time has passed since last shot
+    - Check if enough time has passed since last shot
     if now_ms - self.last_shot_time >= ELITE_ENEMY_SHOOT_DELAY_MS:
         self.last_shot_time = now_ms  # Reset timer
         return EliteBullet(...)
@@ -145,19 +145,19 @@ This program uses list-based object management to handle the lifecycle of bullet
 It dynamically updates, checks, and removes objects to keep the game efficient and stable.
 Key Code 
 
-# Manage bullets: update and remove off-screen bullets
+- Manage bullets: update and remove off-screen bullets
 for bullet in state["bullets"][:]:
     bullet.update()
     if bullet.rect.bottom < 0:
         state["bullets"].remove(bullet)
 
-# Manage enemies: update and remove off-screen enemies
+- Manage enemies: update and remove off-screen enemies
 for enemy in state["enemies"][:]:
     enemy.update()
     if enemy.rect.top > HEIGHT:
         state["enemies"].remove(enemy)
 
-# Manage elite bullets: update and remove invalid ones
+- Manage elite bullets: update and remove invalid ones
 for eb in state["elite_bullets"][:]:
     eb.update()
     if eb.rect.top > HEIGHT:
