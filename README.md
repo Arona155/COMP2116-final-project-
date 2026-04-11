@@ -107,8 +107,9 @@ elif state["current_state"] == "pause":
 elif state["current_state"] == "game_over":
     # show game over interface
     
-Core value: Decouples logic across different game stages
-It separates menu, gameplay, pause, and game-over logic so they do not interfere with each other, making the code cleaner, more stable, and easier to maintain.
+Core value: 
+-Decouples logic across different game stages
+-It separates menu, gameplay, pause, and game-over logic so they do not interfere with each other, making the code cleaner, more stable, and easier to maintain.
 
 Cooldown / Timer Algorithm
 This program uses cooldown and timer algorithms to control shooting frequency and prevent unlimited firing, ensuring game balance.
