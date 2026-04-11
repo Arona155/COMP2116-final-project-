@@ -133,8 +133,9 @@ The Shooting Plane Game is currently in a demo version (v0.3).
 
 
 ## Declaration:
-### Tools Used: 
 - Language: Python 3.11
 - Library: Pygame
 - Documentation: Markdown (README.md)
+- BGM:
+- INGAME BGM:
 
