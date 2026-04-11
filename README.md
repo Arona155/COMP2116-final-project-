@@ -21,19 +21,12 @@ We chose the Agile approach over the Waterfall model for several strategic reaso
 - Strategic Fit: Given the dynamic nature of game development, Agile provides a better "Time-to-Market" advantage and fits our need for flexibility in the design of "Fun & Joy" elements.
 
 
-### Target Market / Usage:
+### Possible usage of your software (Target Market)
 
 The Shooting Plane Game is designed for:
-- Casual players who enjoy simple arcade-style games
-- Students and beginners learning game development concepts
-- Anyone looking for a lightweight and easy-to-play shooting game
-
-The game can be used for:
-- Entertainment and casual gaming
-- Educational purposes (learning basic game mechanics and programming)
-- Demonstration of fundamental game development techniques
-
-
+- Casual Gamers: The primary target market includes users seeking quick, arcade-style entertainment and stress relief through simple, engaging mechanics.
+- Educational Purpose: The project serves as an open-source reference for students and developers learning Python and game physics (e.g., using the Pygame library).
+- Indie Game Developers: It provides a modular foundation for developers looking to build upon a functional 2D shooting engine for more complex arcade titles.
 
 # 3. Project Development Plan
 
