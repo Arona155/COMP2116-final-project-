@@ -135,8 +135,8 @@ def shoot(self, now_ms):
         self.last_shot_time = now_ms  # Reset timer
         return EliteBullet(...)
 Core Value
-Stabilizes firing rate and avoids overly fast shooting.
-Improves game balance and difficulty control.
+-Stabilizes firing rate and avoids overly fast shooting.
+-Improves game balance and difficulty control.
 
 Object Pool / List Management Algorithm
 
@@ -162,10 +162,10 @@ for eb in state["elite_bullets"][:]:
     if eb.rect.top > HEIGHT:
         state["elite_bullets"].remove(eb)
 Core Value
-Maintains object lifecycle safely
-Prevents memory waste
-Avoids errors when deleting objects during iteration
-Decouples object logic and keeps the game efficient
+-Maintains object lifecycle safely
+-Prevents memory waste
+-Avoids errors when deleting objects during iteration
+-Decouples object logic and keeps the game efficient
 
 ### Current Status:
 
