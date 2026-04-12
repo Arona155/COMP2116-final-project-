@@ -17,6 +17,14 @@ class SoundManager:
             sound_path = resource_path("assets/sound/laser.wav")
             self.sounds["shoot"] = pygame.mixer.Sound(str(sound_path))
             self.sounds["shoot"].set_volume(1.0)
+
+            enemyboom_path = resource_path("assets/sound/enemyboom.mp3")
+            self.sounds["enemyboom"] = pygame.mixer.Sound(str(enemyboom_path))
+            self.sounds["enemyboom"].set_volume(0.6)
+
+            gameover_path = resource_path("assets/sound/gameover.mp3")
+            self.sounds["gameover"] = pygame.mixer.Sound(str(gameover_path))
+            self.sounds["gameover"].set_volume(1.0)
             return True
 
         except (pygame.error, FileNotFoundError) as e:
