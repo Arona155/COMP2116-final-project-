@@ -150,6 +150,7 @@ def main():
                         if hit_enemy.take_damage():
                             state["score"] += hit_enemy.score_value
                             state["enemies"].remove(hit_enemy)
+                            get_sound_manager().play("enemyboom")
                         if bullet in state["bullets"]:
                             state["bullets"].remove(bullet)
                     else:
@@ -158,9 +159,11 @@ def main():
                             state["bullets"].remove(bullet)
                         if hit_enemy in state["enemies"]:
                             state["enemies"].remove(hit_enemy)
+                            get_sound_manager().play("enemyboom")
 
             for enemy in state["enemies"]:
                 if state["player"].rect.colliderect(enemy.rect):
+                    get_sound_manager().play("gameover")
                     get_sound_manager().stop_music()
                     state["current_state"] = "game_over"
                     game_over_menu = OverlayMenu(
@@ -172,6 +175,7 @@ def main():
 
             for eb in state["elite_bullets"]:
                 if state["player"].rect.colliderect(eb.rect):
+                    get_sound_manager().play("gameover")
                     get_sound_manager().stop_music()
                     state["current_state"] = "game_over"
                     game_over_menu = OverlayMenu(
