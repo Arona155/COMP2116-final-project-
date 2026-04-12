@@ -84,7 +84,8 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 3/4/2026: Added Elite Emeny airplane and shooting bullet
 - 11/4/2026 Managing the structure of the code
 - 12/4/2026 Create a icon of the game, and added new sound effect, gameover bgm, release demo-verison-v0.4
-
+- 13/4/2026 Added icon, and release demo-verison-v0.5
+  
 ### Algorithm:
 Finite State Machine (FSM)
 This program uses a finite state machine algorithm to manage the entire game flow and separate different game logics.
@@ -188,6 +189,7 @@ The Shooting Plane Game is currently in a demo version (v0.3).
 - Ingame Music
 - Gameover Music
 - Sound Effect
+- Icon
 
 ### Future Plan:
 - Enhanced enemy behaviors and difficulty scaling (TBD)
