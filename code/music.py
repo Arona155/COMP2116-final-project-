@@ -67,6 +67,10 @@ class SoundManager:
     def play_ingame_music(self, restart=False):
         return self.play_music(self.ingame_bgm_path, loops=-1, restart=restart, volume=0.6)
 
+    def stop_all_sounds(self):
+        for sound in self.sounds.values():
+            if sound:
+                sound.stop()
 
 def get_sound_manager():
     global _sound_manager
