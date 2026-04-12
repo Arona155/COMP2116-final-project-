@@ -85,18 +85,22 @@ def main():
 
             elif state["current_state"] == "game_over":
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
+                    get_sound_manager().stop_all_sounds()
                     state = reset_game()
                     state["current_state"] = "game"
                     get_sound_manager().play_ingame_music(restart=True)
                 action = game_over_menu.handle_event(event)
                 if action == "restart":
+                    get_sound_manager().stop_all_sounds()
                     state = reset_game()
                     state["current_state"] = "game"
                     get_sound_manager().play_ingame_music(restart=True)
                 elif action == "home":
+                    get_sound_manager().stop_all_sounds()
                     get_sound_manager().stop_music()
                     state = reset_game()
                 elif action == "quit":
+                    get_sound_manager().stop_all_sounds()
                     get_sound_manager().stop_music()
                     running = False
                     break
