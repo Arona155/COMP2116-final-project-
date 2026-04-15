@@ -207,15 +207,18 @@ The Shooting Plane Game is currently in a demo version (v0.6).
 
 
 ## Environments of the software development and running:
-
+- Programming Language: Python 3.8+
+- Game Framework: Pygame 2.0+
+- IDE Recommended: VS Code, PyCharm, or any Python-compatible IDE
 
 ## Declaration:
 - Code Editor: Visual Studio Code 1.115
 - Language: Python 3.11
 - Library: Pygame
 - Documentation: Markdown (README.md)
-- BGM: 
-- INGAME BGM:
+- BGM: https://opengameart.org/content/magic-space by CodeManu
+- INGAME BGM: 
+- SOUND EFFECTS: laser-https://opengameart.org/content/laser-fire by dklon 
 - GAMEOVER BGM:
 
 1. Core Dependencies (External Packages)
