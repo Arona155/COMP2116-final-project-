@@ -207,11 +207,23 @@ The Shooting Plane Game is currently in a demo version (v0.6).
 
 ## Environments of the software development and running:
 ### Development Environment
-- Programming Language: Python 3.8+
-- Game Framework: Pygame 2.0+
-- IDE Recommended: VS Code, PyCharm, or any Python-compatible IDE
+- Programming Language: Python 3.11+
+- Game Framework: Pygame 2.5+
+- IDE Recommended: VS Code (Visual Studio Code)
 - Language: Python 3.11
-- Library: Pygame
+
+### Minimum Hardware Requirements
+- **CPU:** Dual-core processor (2.0 GHz or higher)  
+- **RAM:** 2 GB  
+- **GPU:** Integrated graphics (OpenGL support)  
+- **Storage:** At least 200 MB free space  
+- **Display:** 1280x720 resolution
+  
+### Minimum Software Requirements
+- **Operating System:** Windows 10
+- **Python:** Version 3.11  
+- **Pygame:** Version 2.5.2 or later  
+- **Editor:** Visual Studio Code (recommended)
 
 
 ## Declaration:
