@@ -93,7 +93,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 12/4/2026 Create a icon of the game, and added new sound effect, gameover bgm, release demo-verison-v0.4
 - 13/4/2026 Added icon, and release demo-verison-v0.5
 - 14/4/2026 Added Focus Mode and update Emeny system, added health system
-- 15/4/2026 Release demo-verison-v0.6
+- 15/4/2026 Release demo-verison-v0.6 (beta verison)
   
 ### Algorithm:
 Finite State Machine (FSM)
@@ -181,9 +181,9 @@ Core Value
 -Decouples object logic and keeps the game efficient
 
 ### Current Status:
-The Shooting Plane Game is currently in a demo version (v0.6).
+The Shooting Plane Game is currently in a demo version (v0.6) beta verison.
 
-As of April 15, 2026, the project has successfully reached Demo Version v0.6. Following the Agile iterative process, we have transitioned from a basic prototype to a feature-rich pilot version. The current status includes:
+As of April 15, 2026, the project has successfully reached Demo Version v0.6 (beta verison). Following the Agile iterative process, we have transitioned from a basic prototype to a feature-rich pilot version. The current status includes:
 - **Core Mechanics:** Fully functional player movement (including W/S keys), shooting system, and a dynamic enemy system featuring both standard and newly added Elite Enemy airplanes with their own projectile logic.
 - **Gameplay Systems:** Integration of a Health System and a specialized Focus Mode to enhance player experience and tactical depth.
 - **Multimedia & UI:** Implementation of a complete GUI, customized game icons, and a layered audio system (Background Music, In-game SFX, and Game Over BGM).
