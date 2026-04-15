@@ -69,7 +69,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 
 | Name           | Role                                      | Responsibilities                                                                                                   | Portion (%)   |
 |:---------------|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|:--------------|
-| LAM CHON HIN A (You) | Lead Software Architect & Project Manager | Project initialization, software evolution (Focus/Health Mode), core logic implementation, and release management. | 20%           |
+| LAM CHON HIN | Lead Software Architect & Project Manager | Project initialization, software evolution (Focus/Health Mode), core logic implementation, and release management. | 20%           |
 | KOU CHON HANG       | Backend Developer & Graphics Integration  | Bug fixing, environment configuration (VS Code), enemy sprite integration, and audio management (Game Over).       | 20%           |
 | LAM CHEOK IN      | GUI & Audio Engineer                      | User Interface (GUI) design, background music synchronization, and sound effect implementation.                    | 20%           |
 | LENG WAI IP       | Technical Writer & Algorithm Designer     | Documentation (README.md), algorithm specification, and software declarations.                                     | 20%           |
