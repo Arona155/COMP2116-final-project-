@@ -18,6 +18,7 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 
 # 2. Project Purpose
+
 ### Software Development Process Applied:
 The development of the Shooting Plane Game follows the Agile Development Methodology. This project utilizes an incremental and iterative approach, where the software is developed as a series of versions (v0.1 to v0.3). Each iteration focuses on delivering working code quickly—from basic player movement to the integration of complex systems like collision, scoring, and multimedia elements.
 
@@ -84,7 +85,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 | LAI U HIN       | Visual Designer & Media Producer          | Player asset creation, visual implementation in VS Code, and demo video production for validation.                 | 20%  
 
 
-### Schedule:
+### Schedule
 (Top to Bottom)
 - 15/3/2026: Project setup  
 - 20/3/2026: Player movement  
@@ -103,7 +104,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 14/4/2026 Added Focus Mode and update Emeny system, added health system
 - 15/4/2026 Release demo-verison-v0.6 (beta verison)
   
-### Algorithm:
+### Algorithm
 Finite State Machine (FSM)
 This program uses a finite state machine algorithm to manage the entire game flow and separate different game logics.
 
@@ -188,7 +189,7 @@ Core Value
 -Avoids errors when deleting objects during iteration
 -Decouples object logic and keeps the game efficient
 
-### Current Status:
+### Current Status
 The Shooting Plane Game is currently in a demo version (v0.6) beta verison.
 
 As of April 15, 2026, the project has successfully reached Demo Version v0.6 (beta verison). Following the Agile iterative process, we have transitioned from a basic prototype to a feature-rich pilot version. The current status includes:
@@ -200,38 +201,38 @@ As of April 15, 2026, the project has successfully reached Demo Version v0.6 (be
 
 
   
-### Future Plan:
+### Future Plan
 In alignment with the Incremental Delivery strategy outlined in our software process, the following features and improvements are planned for upcoming sprints:
 - **Iteration 7** (Level & Difficulty Scaling): Implementation of a stage-based system where enemy spawn rates and speed increase over time to provide a progressive challenge.
 - **Iteration 8** (Power-up System): Introduction of collectible items (e.g., triple-shot, shields, or health kits) to add variety to the core gameplay loop.
 - **Iteration 9** (Boss Encounter): Development of a "Boss" enemy with complex attack patterns and higher health points to serve as a milestone for each level.
 - **User Feedback Integration:** As an Agile project, we plan to conduct user testing sessions to gather feedback on the "Focus Mode" and "Elite Enemy" balance, which will inform the requirements for version v1.0.
 
-## Demo (YoutubeURL): 
+## Demo (YoutubeURL)
 
 
-## Environments of the software development and running:
-### Development Environment
+## Environments of the software development and running
+### Development Environment:
 - Programming Language: Python 3.11+
 - Game Framework: Pygame 2.5+
 - IDE Recommended: VS Code (Visual Studio Code)
 - Language: Python 3.11
 
-### Minimum Hardware Requirements
+### Minimum Hardware Requirements:
 - **CPU:** Dual-core processor (2.0 GHz or higher)  
 - **RAM:** 2 GB  
 - **GPU:** Integrated graphics (OpenGL support)  
 - **Storage:** At least 200 MB free space  
 - **Display:** 1280x720 resolution
   
-### Minimum Software Requirements
+### Minimum Software Requirements:
 - **Operating System:** Windows 10
 - **Python:** Version 3.11  
 - **Pygame:** Version 2.5.2 or later  
 - **Editor:** Visual Studio Code (recommended)
 
 
-## Declaration:
+## Declaration
 
 - BGM: https://opengameart.org/content/magic-space by CodeManu
 - INGAME BGM: 
