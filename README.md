@@ -5,10 +5,10 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 # 1. Graphical Abstract
 
-###HOME:
+### HOME:
 <img width="792" height="626" alt="螢幕擷取畫面 2026-04-15 235210" src="https://github.com/user-attachments/assets/5737da7e-6e5a-4ba5-8b41-18e2bcda9725" />
 
-###IN GAME:
+### IN GAME:
 <img width="797" height="628" alt="螢幕擷取畫面 2026-04-15 235225" src="https://github.com/user-attachments/assets/4ead0b96-88a2-484f-8316-212b271ed2a9" />
 
 ### GAME OVER:
