@@ -176,31 +176,21 @@ Core Value
 ### Current Status:
 The Shooting Plane Game is currently in a demo version (v0.6).
 
-✅ Completed Features:
-- Enemy airplane system
-- Shooting (bullet) functionality (Press LMB)
-- Score tracking system
-- Collision detection (game over on impact)
-- Player movement (W/A/S/D)
-- Shooting sound (bullet)
-- Menu (GUI)
-- Background Music
-- Ingame Music
-- Gameover Music
-- Sound Effect
-- Icon
-- Focus Mode (Hold Shift)
-- Health System
+As of April 15, 2026, the project has successfully reached Demo Version v0.6. Following the Agile iterative process, we have transitioned from a basic prototype to a feature-rich pilot version. The current status includes:
+- **Core Mechanics:** Fully functional player movement (including W/S keys), shooting system, and a dynamic enemy system featuring both standard and newly added Elite Enemy airplanes with their own projectile logic.
+- **Gameplay Systems:** Integration of a Health System and a specialized Focus Mode to enhance player experience and tactical depth.
+- **Multimedia & UI:** Implementation of a complete GUI, customized game icons, and a layered audio system (Background Music, In-game SFX, and Game Over BGM).
+- **Code Quality:** Conducted significant Code Restructuring (Refactoring) on April 11 to improve maintainability and scalability, ensuring the architecture can support further incremental updates as per Agile principles.
+- **Stability:** Basic collision detection and scoring logic are verified, with initial debugging phases completed to ensure a playable demo experience.
+
+
   
 ### Future Plan:
-- Enhanced enemy behaviors and difficulty scaling (TBD)
-- Improved graphics and visual effects (TBD)
-- Background music (Added)
-- User interface enhancements (menus, HUD) (Added)
-- Performance optimization and bug fixes (TBD)
-- Setting round (Boss) (TBD)
-- Improve shooting system (TBD)
-- Special skill system (TBD)
+In alignment with the Incremental Delivery strategy outlined in our software process, the following features and improvements are planned for upcoming sprints:
+- **Iteration 7** (Level & Difficulty Scaling): Implementation of a stage-based system where enemy spawn rates and speed increase over time to provide a progressive challenge.
+- **Iteration 8** (Power-up System): Introduction of collectible items (e.g., triple-shot, shields, or health kits) to add variety to the core gameplay loop.
+- **Iteration 9** (Boss Encounter): Development of a "Boss" enemy with complex attack patterns and higher health points to serve as a milestone for each level.
+- **User Feedback Integration:** As an Agile project, we plan to conduct user testing sessions to gather feedback on the "Focus Mode" and "Elite Enemy" balance, which will inform the requirements for version v1.0.
 
 ## Demo (YoutubeURL): 
 
