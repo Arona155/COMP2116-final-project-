@@ -85,6 +85,8 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 11/4/2026 Managing the structure of the code
 - 12/4/2026 Create a icon of the game, and added new sound effect, gameover bgm, release demo-verison-v0.4
 - 13/4/2026 Added icon, and release demo-verison-v0.5
+- 14/4/2026 Added Focus Mode and update Emeny system, added health system
+- 15/4/2026 release demo-verison-v0.6
   
 ### Algorithm:
 Finite State Machine (FSM)
@@ -173,16 +175,14 @@ Core Value
 
 ### Current Status:
 
-The Shooting Plane Game is currently in a demo version (v0.3).
+The Shooting Plane Game is currently in a demo version (v0.6).
 
 ✅ Completed Features:
-- Player-controlled airplane with left/right movement
 - Enemy airplane system
-- Shooting (bullet) functionality
+- Shooting (bullet) functionality (Press LMB)
 - Score tracking system
 - Collision detection (game over on impact)
-- Restart functionality (press R to restart) 
-- Player movement (W/S/A/D)
+- Player movement (W/A/S/D)
 - Shooting sound (bullet)
 - Menu (GUI)
 - Background Music
@@ -190,7 +190,9 @@ The Shooting Plane Game is currently in a demo version (v0.3).
 - Gameover Music
 - Sound Effect
 - Icon
-
+- Focus Mode (Hold Shift)
+- Health System
+  
 ### Future Plan:
 - Enhanced enemy behaviors and difficulty scaling (TBD)
 - Improved graphics and visual effects (TBD)
