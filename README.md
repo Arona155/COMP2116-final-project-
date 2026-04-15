@@ -86,7 +86,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 12/4/2026 Create a icon of the game, and added new sound effect, gameover bgm, release demo-verison-v0.4
 - 13/4/2026 Added icon, and release demo-verison-v0.5
 - 14/4/2026 Added Focus Mode and update Emeny system, added health system
-- 15/4/2026 release demo-verison-v0.6
+- 15/4/2026 Release demo-verison-v0.6
   
 ### Algorithm:
 Finite State Machine (FSM)
