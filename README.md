@@ -174,7 +174,6 @@ Core Value
 -Decouples object logic and keeps the game efficient
 
 ### Current Status:
-
 The Shooting Plane Game is currently in a demo version (v0.6).
 
 ✅ Completed Features:
@@ -207,13 +206,13 @@ The Shooting Plane Game is currently in a demo version (v0.6).
 
 
 ## Environments of the software development and running:
+### Development Environment
 - Programming Language: Python 3.8+
 - Game Framework: Pygame 2.0+
 - IDE Recommended: VS Code, PyCharm, or any Python-compatible IDE
-- Code Editor: Visual Studio Code 1.115
 - Language: Python 3.11
 - Library: Pygame
-- Documentation: Markdown (README.md)
+
 
 ## Declaration:
 
