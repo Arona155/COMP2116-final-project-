@@ -247,7 +247,7 @@ In alignment with the Incremental Delivery strategy outlined in our software pro
 ## Declaration
 
 - BGM: https://opengameart.org/content/magic-space by CodeManu
-- INGAME BGM: 
+- INGAME BGM: https://youtu.be/mRN_T6JkH-c?si=0t8uFVJOn-cOpBqP 
 - SOUND EFFECTS: laser-https://opengameart.org/content/laser-fire by dklon 
 - GAMEOVER BGM: https://www.youtube.com/watch?v=Fy0gYzKIv1g&list=RDFy0gYzKIv1g&start_radio=1
 
