@@ -17,7 +17,7 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 # 1. Graphical Abstract
 
-### HOME:
+### MENU (GUI):
 <img width="792" height="626" alt="螢幕擷取畫面 2026-04-15 235210" src="https://github.com/user-attachments/assets/5737da7e-6e5a-4ba5-8b41-18e2bcda9725" />
 
 ### IN GAME:
