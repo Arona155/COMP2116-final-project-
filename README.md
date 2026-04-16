@@ -1,5 +1,5 @@
-# Shooting Plane Game --- COMP2116 Final Project
-Shooting Plane Game is a simple 2D arcade-style shooting game developed in Python.
+# Shooting Plane Game by SkyStrike Studios --- COMP2116 Final Project
+Shooting Plane Game is a simple 2D arcade-style shooting game made by **SkyStrike Studios** and developed in Python.
 Players control a fighter plane, shoot down enemies, and try to achieve the highest score while avoiding collisions.
 
 ### How to Install?
