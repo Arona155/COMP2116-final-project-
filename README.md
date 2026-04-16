@@ -115,6 +115,35 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 13/4/2026 Added icon, and release demo-verison-v0.5
 - 14/4/2026 Added Focus Mode and update Emeny system, added health system
 - 15/4/2026 Release demo-verison-v0.6 (beta verison)
+
+gantt
+    title Shooting Plane Game Development Roadmap (Agile Sprints)
+    dateFormat  YYYY-MM-DD
+    section Sprint 1: Core Prototype
+    Project Setup               :active, des1, 2026-03-15, 5d
+    Player Movement             :des2, 2026-03-20, 1d
+    Enemy System                :des3, 2026-03-21, 1d
+    Shooting System             :des4, 2026-03-22, 1d
+    Collision & Scoring         :des5, 2026-03-23, 1d
+    Testing & Debugging         :des6, 2026-03-24, 1d
+    Release Demo v0.1           :milestone, m1, 2026-03-25, 0d
+
+    section Sprint 2: Multimedia & UI
+    GUI & Movement Update (W/S) :des7, 2026-03-30, 1d
+    Release Demo v0.2           :milestone, m2, 2026-04-01, 0d
+    Audio & BGM Integration     :des8, 2026-04-02, 1d
+    Release Demo v0.3           :milestone, m3, 2026-04-02, 0d
+
+    section Sprint 3: Refactoring & Assets
+    Elite Enemy & Bullets       :des9, 2026-04-03, 1d
+    Code Restructuring (Agile)  :active, des10, 2026-04-11, 1d
+    Icons & Sound Effects       :des11, 2026-04-12, 1d
+    Release Demo v0.4           :milestone, m4, 2026-04-12, 0d
+    Final Icon Release v0.5     :milestone, m5, 2026-04-13, 0d
+
+    section Sprint 4: Final Features
+    Focus Mode & Health System  :des12, 2026-04-14, 1d
+    Release Demo v0.6           :milestone, m6, 2026-04-15, 0d
   
 ### Algorithm
 Finite State Machine (FSM)
