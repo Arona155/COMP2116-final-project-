@@ -6,7 +6,7 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 1. Go to the github Release:
 <img width="2559" height="1194" alt="未命名設計" src="https://github.com/user-attachments/assets/c29be48e-8f65-4a97-965e-f8c420042992" />
-2. Click **ShootingGame-demo-verison-v0.6.zip** to download and extract it:
+2. Click lastest verison pf the software to download zip folder and extract it:
 <img width="2559" height="1194" alt="Download the zip file" src="https://github.com/user-attachments/assets/d8e29e62-2b89-4f5d-ae4c-578d0213b7d8" />
 3. After extract the folder you can find two file:
 <img width="924" height="612" alt="螢幕擷取畫面 2026-04-16 144510" src="https://github.com/user-attachments/assets/3905e13c-d784-4341-94b7-292aadc1a78a" />
