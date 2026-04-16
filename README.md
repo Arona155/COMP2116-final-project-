@@ -116,6 +116,7 @@ In accordance with Agile principles, we embraced changes during the process. For
 - 14/4/2026 Added Focus Mode and update Emeny system, added health system
 - 15/4/2026 Release demo-verison-v0.6 (beta verison)
 
+```mermaid
 gantt
     title Shooting Plane Game Development Roadmap (Agile Sprints)
     dateFormat  YYYY-MM-DD
@@ -144,6 +145,10 @@ gantt
     section Sprint 4: Final Features
     Focus Mode & Health System  :des12, 2026-04-14, 1d
     Release Demo v0.6           :milestone, m6, 2026-04-15, 0d
+```
+
+
+
   
 ### Algorithm
 Finite State Machine (FSM)
