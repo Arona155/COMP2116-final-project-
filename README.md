@@ -253,6 +253,7 @@ In alignment with the Incremental Delivery strategy outlined in our software pro
 - **Iteration 7** (Level & Difficulty Scaling): Implementation of a stage-based system where enemy spawn rates and speed increase over time to provide a progressive challenge.
 - **Iteration 8** (Power-up System): Introduction of collectible items (e.g., triple-shot, shields, or health kits) to add variety to the core gameplay loop.
 - **Iteration 9** (Boss Encounter): Development of a "Boss" enemy with complex attack patterns and higher health points to serve as a milestone for each level.
+- **Iteration 10**(Settings Mode): Create a settings to let everyone customize the resolution, sound volume...etc.
 - **User Feedback Integration:** As an Agile project, we plan to conduct user testing sessions to gather feedback on the "Focus Mode" and "Elite Enemy" balance, which will inform the requirements for version v1.0.
 
 ## Demo (YoutubeURL)
@@ -270,7 +271,7 @@ In alignment with the Incremental Delivery strategy outlined in our software pro
 - **RAM:** 2 GB  
 - **GPU:** Integrated graphics (OpenGL support)  
 - **Storage:** At least 200 MB free space  
-- **Display:** 1280x720 resolution
+- **Display:** 800*630 resolution
   
 ### Minimum Software Requirements:
 - **Operating System:** Windows 10
