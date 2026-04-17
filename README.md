@@ -4,7 +4,7 @@ Players control a fighter plane, shoot down enemies, and try to achieve the high
 
 ### How to Install?
 
-1. Go to the github Release:
+1. Go to the GitHub Release:
 <img width="2559" height="1194" alt="未命名設計" src="https://github.com/user-attachments/assets/c29be48e-8f65-4a97-965e-f8c420042992" />
 2. Click lastest verison of the software to download zip folder and extract it:
 <img width="2559" height="1194" alt="Download the zip file" src="https://github.com/user-attachments/assets/d8e29e62-2b89-4f5d-ae4c-578d0213b7d8" />
