@@ -257,7 +257,7 @@ In alignment with the Incremental Delivery strategy outlined in our software pro
 - **User Feedback Integration:** As an Agile project, we plan to conduct user testing sessions to gather feedback on the "Focus Mode" and "Elite Enemy" balance, which will inform the requirements for version v1.0.
 
 ## Demo (YoutubeURL)
-
+URL: https://youtu.be/T_s6UngQa0g (Tutorial & Introduction)
 
 ## Environments of the software development and running
 ### Development Environment:
