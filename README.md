@@ -249,7 +249,7 @@ As of April 15, 2026, the project has successfully reached Demo Version v0.6 (be
 
   
 ### Future Plan
-In alignment with the Incremental Delivery strategy outlined in our software process, the following features and improvements are planned for upcoming sprints:
+In alignment with the Incremental Delivery strategy outlined in our software process, the following features and improvements are planned for upcoming sprints, we have already completed Iteration 1~6 of the software:
 - **Iteration 7** (Level & Difficulty Scaling): Implementation of a stage-based system where enemy spawn rates and speed increase over time to provide a progressive challenge.
 - **Iteration 8** (Power-up System): Introduction of collectible items (e.g., triple-shot, shields, or health kits) to add variety to the core gameplay loop.
 - **Iteration 9** (Boss Encounter): Development of a "Boss" enemy with complex attack patterns and higher health points to serve as a milestone for each level.
